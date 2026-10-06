@@ -35,4 +35,3 @@ Second tick: no additional messages
       Tests  1 passed | 10 skipped (11)
    Start at  19:59:44
    Duration  507ms (tests 57%, transform 32%, import 11%, worker 1%)
-
