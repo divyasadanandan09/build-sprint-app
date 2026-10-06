@@ -1,5 +1,10 @@
 // Fixed copy from DESIGN.md. Dynamic recommendation text is the client's text.
 export const copy = {
+  nudge: (name: string) => `${name} hits week 4 today. Here's a check-in in your voice.`,
+  overdueNudge: (name: string, date: string) => `[COPY NEEDED: nudge for ${name}, whose four-week date was ${date}]`,
+  checkIn: (client: string, trainer: string) => trainer ? `Hi ${client}, it's ${trainer}! You've done 4 weeks now, how's it feeling?` : "[COPY NEEDED: check-in when the instructor name is unknown]",
+  dueLine: (name: string, date: string) => `[COPY NEEDED: due-this-week line for ${name}, due ${date}]`,
+  noDue: "[COPY NEEDED: no clients due this week]",
   sendReview: "Send revised review",
   reviewInvitation: "[COPY NEEDED: conversational invitation to paste a review after the instructor says This is a review]",
   sendAsk: "Ask client to post",

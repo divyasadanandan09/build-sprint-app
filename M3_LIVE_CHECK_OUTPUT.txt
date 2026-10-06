@@ -1,0 +1,16 @@
+REAL DEV M3 CHECK — 6 Oct; made-up client; no real AI calls.
+Existing owner test account used; actual phone/name/review withheld.
+Client: M3 Test Priya; start 8 Sept 2026; due 6 Oct 2026.
+Minute cron created the nudge and ran the regular workflow.
+Client status: checked_in
+Check-in state: sent
+Meta accepted: nudge; state=sent
+Meta accepted: check-in; state=sent
+Meta accepted: check-in-button; state=sent
+Two manual repeat commands: npx convex run m3:tick '{"source":"dev"}'
+Both command outputs: 0
+Outbound messages after repeat checks: 3
+Meta acceptance is verified; delivery/read and opening the button require owner phone confirmation.
+Real dev Who's due? command: Meta accepted due-list-0; made-up M3 client present; private list content withheld.
+
+Updated combined-layout real check: made-up M3 Test Tara saved at 20:08:40; cron queued at 20:09:40; one combined interactive nudge accepted by Meta at 20:09:41. Owner confirmed receipt and approved M3.

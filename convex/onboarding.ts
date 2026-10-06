@@ -6,7 +6,7 @@ import { copy } from "./lib/copy";
 import { isClientMessage, parseClient } from "./lib/dates";
 import { buttonPayload, sendWhatsApp, textPayload, typingPayload, type WhatsAppPayload } from "./lib/whatsapp";
 
-async function deliver(ctx: ActionCtx, trainerId: Id<"trainers">, source: string, part: string, payload: WhatsAppPayload): Promise<string | null> {
+export async function deliver(ctx: ActionCtx, trainerId: Id<"trainers">, source: string, part: string, payload: WhatsAppPayload): Promise<string | null> {
   const outboundId = await ctx.runMutation(internal.m2Store.beginSend, { trainerId, source, part, payload: JSON.stringify(payload) });
   if (!outboundId) return "send_already_attempted";
   const result = await sendWhatsApp(payload);
@@ -30,6 +30,7 @@ export const process = internalAction({
       else if (/^(?:say\s+thanks|thanks|thank\s+you)[^\p{L}\p{N}]*$/iu.test(message.text.trim()) || !/[\p{L}\p{N}]/u.test(message.text)) failure = await send("fallback", copy.fallback);
       else if (/^(hi|hello|hey)[!.\s]*$/i.test(message.text.trim())) failure = await send("welcome", copy.welcome);
       else if (reviewTrigger && !reviewText) failure = await send("review-invitation", copy.reviewInvitation);
+      else if (/^who['’]s due\??$/i.test(message.text.trim())) failure = await ctx.runAction(internal.m3.sendDue, { trainerId: message.trainerId, source: message.inboundId });
       else if (!reviewTrigger && isClientMessage(message.text)) {
         const client = parseClient(message.text, Date.now());
         if (!client) failure = await send("date-error", copy.dateError);

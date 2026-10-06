@@ -64,8 +64,10 @@ Done when: from my phone, I paste a review and get both drafts and a working Sen
 Status, 6 Oct: owner confirmed M2 and authorized commit, push and production deploy. 40 mocked tests, compile and demo pass. Meta webhook and Business-account subscription were repaired; real phone review flow was tested by owner. Latest CTA labels: Send revised review / Ask client to post. Client additions are instructor initiated. Missing invitation and unnamed-client copy remain listed in M2_NOTES.md; M1’s full real-review quality check is still unverified.
 
 ## M3. Clients and the daily nudge (11:00am to 12:00pm)
-Add a client by message ("Ananya, 12 Sept"), the nudge (DESIGN.md 4.2), and the "Who's due?" command.
+Add a client by message ("New client Ananya joined on 12 Sept", "Add Ananya, 12 Sept", or the existing short format), the nudge (DESIGN.md 4.2), and the "Who's due?" command.
 Done when: a test client whose wait period has passed gets a nudge, and its Send to client button opens WhatsApp with the check-in.
+
+Status, 6 Oct: M3 built and deployed to dev; 51 mocked tests pass, compile passes, real minute cron sent a made-up client’s nudge/check-in/button (Meta accepted all three), repeated ticks sent nothing more. Owner screenshot confirmed the original three messages arrived; updated per owner to one combined nudge/check-in message with a blank line and button. Owner confirmed the combined nudge on phone and approved M3. BLOCKED: no week4_nudge template exists in Meta; production nudges remain disabled. Due-list, empty-list, overdue-nudge and missing-instructor-name wording are placeholders in DESIGN.md. M3 approved for commit, push and production deployment; scheduled production nudges remain gated until Meta template approval. No M4 work.
 
 ## M4. Forwarded replies (12:00 to 1:30pm)
 Voice notes through Sarvam, "whose reply is this?", and the three outcomes in DESIGN.md 4.4 and 4.5.

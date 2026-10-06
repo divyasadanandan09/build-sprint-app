@@ -117,7 +117,7 @@ The agent has no visual design of its own. It looks like WhatsApp because it is 
 ### 4.2 The daily nudge
 - **Trigger:** 9am on any day one or more clients reach their wait period (4 weeks by default). Never earlier.
 - **This is a Meta-approved utility template**, because the agent is messaging her first. Submit it for approval in week 1 of the sprint.
-- **One message per client**, so each has its own button.
+- **One message per client**, so each has its own button. Owner clarification, 6 Oct: combine the nudge line and check-in draft in that one message, separated by a blank line, with Send to client underneath. The button opens only the check-in draft. This overrides the separate-draft-message rule for nudges only.
 
 | Moment | Agent says |
 |---|---|
@@ -127,6 +127,9 @@ The agent has no visual design of its own. It looks like WhatsApp because it is 
 | No one due | Send nothing. Silence is the empty state. |
 
 - **This is a check-in, not a testimonial ask.** The reply decides what happens next.
+- **M3 missing copy:** an overdue client needs `[COPY NEEDED: nudge for {name}, whose four-week date was {date}]`; never use the "today" nudge for a past date. Dev can use this placeholder; production catch-up waits for approved overdue template copy.
+- **Who's due?** lists clients whose four-week dates fall in the current Monday–Sunday week, using IST. Each line currently uses `[COPY NEEDED: due-this-week line for {name}, due {date}]`; an empty list uses `[COPY NEEDED: no clients due this week]`. No scheduled nudge is sent when no client is due.
+- **Unknown instructor name:** the check-in uses `[COPY NEEDED: check-in when the instructor name is unknown]`. Otherwise the instructor's stored WhatsApp profile name replaces Mayuri in the check-in example.
 
 ### 4.3 No reply
 - **Trigger:** 3 days after a check-in or a recommendation ask, if she hasn't forwarded a reply.

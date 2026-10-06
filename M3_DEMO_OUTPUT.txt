@@ -1,0 +1,38 @@
+
+> build-sprint-app@1.0.0 demo:m3
+> M3_SHOW_EXCHANGE=1 vitest run tests/m3.test.ts --testNamePattern="sends an eligible dev client" --reporter=verbose
+
+
+ RUN  v5.0.3 /Users/divyaabhilash/build-sprint-app
+
+stderr | tests/m3.test.ts > sends an eligible dev client one nudge and a check-in-only button; repeated ticks never duplicate it
+[monitor] "main" loop is not running — restarting
+
+stderr | tests/m3.test.ts > sends an eligible dev client one nudge and a check-in-only button; repeated ticks never duplicate it
+[monitor] "main" loop is not running — restarting
+
+stdout | tests/m3.test.ts > sends an eligible dev client one nudge and a check-in-only button; repeated ticks never duplicate it
+MOCK M3 EXCHANGE — made-up client, all providers mocked
+Agent: Priya hits week 4 today. Here's a check-in in your voice.
+
+Hi Priya, it's Test Instructor! You've done 4 weeks now, how's it feeling?
+Button: Send to client → https://wa.me/?text=Hi%20Priya%2C%20it's%20Test%20Instructor!%20You've%20done%204%20weeks%20now%2C%20how's%20it%20feeling%3F
+Second tick: no additional messages
+
+ ✓ tests/m3.test.ts > sends an eligible dev client one nudge and a check-in-only button; repeated ticks never duplicate it 233ms
+ ↓ tests/m3.test.ts > never nudges future clients, stays silent when no one is due, and catches up overdue clients
+ ↓ tests/m3.test.ts > requires 9am IST and an enabled approved template in production
+ ↓ tests/m3.test.ts > records blocked sends without marking clients checked in or sending duplicate retries
+ ↓ tests/m3.test.ts > lists only the requesting trainer's clients in the current IST week
+ ↓ tests/m3.test.ts > recognizes Add client and Who's due commands without AI
+ ↓ tests/m3.test.ts > does not trust an early due date when the minimum wait period has not passed
+ ↓ tests/m3.test.ts > continues beyond 50 clients and does not let blocked clients hide later ones
+ ↓ tests/m3.test.ts > lists clients in batches of at most five lines and uses the copy placeholder for an empty week
+ ↓ tests/m3.test.ts > does not use the today-only production template for overdue clients
+ ↓ tests/m3.test.ts > records a network failure without marking the combined nudge sent or retrying it
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 10 skipped (11)
+   Start at  19:59:44
+   Duration  507ms (tests 57%, transform 32%, import 11%, worker 1%)
+

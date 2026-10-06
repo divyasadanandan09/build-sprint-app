@@ -26,3 +26,9 @@ One line per milestone, added after I confirm it works: date, milestone, what no
 - 6 Oct, M2 two CTAs restored with approved labels Send revised review / Ask client to post; separate draft URLs verified, 40 mocked tests, compile and demo pass, dev deployed; phone check pending, no commit or push.
 
 - 6 Oct, M2 confirmed by owner: signed WhatsApp review/draft flow, separate approved send buttons and conversational client input work; 40 mocked tests, compile and dev demo pass; owner authorized commit, push and production deploy, then M3.
+
+- 6 Oct, M3: conversational client additions, trainer-scoped due lists and one-time check-in nudges work in dev; 51 mocked tests/compile/demo pass, real minute cron nudged a made-up client with all 3 messages accepted by Meta and no duplicates on repeat ticks; production blocked on approved template/missing copy, owner phone-button confirmation pending; M3 uncommitted, no M4.
+
+- 6 Oct, M3 nudge layout: owner screenshot confirmed receipt; combined nudge and check-in into one message with blank-line spacing and one button that shares only the check-in, 51 mocked tests/compile/demo pass, dev deployed; no commit or push.
+
+- 6 Oct, M3 approved by owner: combined check-in nudge and Send to client button verified on phone, clients/due lists and duplicate prevention pass 51 mocked tests; approved for commit/push/production deploy with production nudges gated until Meta template approval; no M4 started.

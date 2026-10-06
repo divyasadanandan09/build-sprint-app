@@ -4,10 +4,11 @@ function normalizeClientInput(text: string): string {
 }
 export function isClientMessage(text: string): boolean {
   const normalized = normalizeClientInput(text);
-  return /^new client\b/i.test(normalized) || /^[\p{L} .'-]{1,80},\s*\d/iu.test(normalized);
+  return /^new client\b/i.test(normalized) || /^(?:Add\s+)?[\p{L} .'-]{1,80},\s*\d/iu.test(normalized);
 }
 export function parseClient(text: string, now: number): { name: string; startDate: string; dueDate: string; displayDueDate: string } | null {
   let normalized = normalizeClientInput(text);
+  normalized = normalized.replace(/^Add\s+/i, "");
   const conversational = normalized.match(/^new client (.+?) joined on (.+?)\s*\.?$/i);
   if (conversational) normalized = `${conversational[1]}, ${conversational[2]}`;
   const match = normalized.match(/^([^,\n]{1,80}),\s*(\d{1,2})\s+([A-Za-z]+)(?:\s+(\d{4}))?$/);

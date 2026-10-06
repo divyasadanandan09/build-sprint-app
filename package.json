@@ -9,7 +9,9 @@
     "check": "tsc --noEmit -p convex/tsconfig.json",
     "test": "vitest run",
     "test:m2": "vitest run tests/m2.test.ts tests/drafting.integration.test.ts --reporter=verbose",
-    "demo:m2": "M2_SHOW_EXCHANGE=1 vitest run tests/m2.test.ts --testNamePattern=\"sends separate drafts\" --reporter=verbose"
+    "demo:m2": "M2_SHOW_EXCHANGE=1 vitest run tests/m2.test.ts --testNamePattern=\"sends separate drafts\" --reporter=verbose",
+    "test:m3": "vitest run --reporter=verbose",
+    "demo:m3": "M3_SHOW_EXCHANGE=1 vitest run tests/m3.test.ts --testNamePattern=\"sends an eligible dev client\" --reporter=verbose"
   },
   "keywords": [],
   "author": "",

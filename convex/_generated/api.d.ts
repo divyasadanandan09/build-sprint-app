@@ -8,16 +8,19 @@
  * @module
  */
 
+import type * as crons from "../crons.js";
 import type * as drafting from "../drafting.js";
 import type * as health from "../health.js";
 import type * as http from "../http.js";
 import type * as lib_copy from "../lib/copy.js";
 import type * as lib_dates from "../lib/dates.js";
 import type * as lib_recommendation from "../lib/recommendation.js";
+import type * as lib_timing from "../lib/timing.js";
 import type * as lib_webhook from "../lib/webhook.js";
 import type * as lib_whatsapp from "../lib/whatsapp.js";
 import type * as m2Store from "../m2Store.js";
 import type * as m2Workflow from "../m2Workflow.js";
+import type * as m3 from "../m3.js";
 import type * as onboarding from "../onboarding.js";
 
 import type {
@@ -27,16 +30,19 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  crons: typeof crons;
   drafting: typeof drafting;
   health: typeof health;
   http: typeof http;
   "lib/copy": typeof lib_copy;
   "lib/dates": typeof lib_dates;
   "lib/recommendation": typeof lib_recommendation;
+  "lib/timing": typeof lib_timing;
   "lib/webhook": typeof lib_webhook;
   "lib/whatsapp": typeof lib_whatsapp;
   m2Store: typeof m2Store;
   m2Workflow: typeof m2Workflow;
+  m3: typeof m3;
   onboarding: typeof onboarding;
 }>;
 
