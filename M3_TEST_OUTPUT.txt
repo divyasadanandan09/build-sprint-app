@@ -5,14 +5,23 @@
 
  RUN  v5.0.3 /Users/divyaabhilash/build-sprint-app
 
-stdout | tests/m2.test.ts > M2 signed webhook and onboarding > saves a client from a conversational joined-on message, including copied Unicode spacing
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > keeps long review drafts within the button-message body limit using complete sentences
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
-stderr | tests/m2.test.ts > M2 signed webhook and onboarding > saves a client from a conversational joined-on message, including copied Unicode spacing
+stderr | tests/m2.test.ts > M2 signed webhook and onboarding > keeps long review drafts within the button-message body limit using complete sentences
 [monitor] "main" loop is not running — restarting
 
-stderr | tests/m2.test.ts > M2 signed webhook and onboarding > saves a client from a conversational joined-on message, including copied Unicode spacing
+stderr | tests/m2.test.ts > M2 signed webhook and onboarding > keeps long review drafts within the button-message body limit using complete sentences
 [monitor] "main" loop is not running — restarting
+
+stderr | tests/m2.test.ts > M2 signed webhook and onboarding > keeps long review drafts within the button-message body limit using complete sentences
+[monitor] "main" loop is not running — restarting
+
+stderr | tests/m2.test.ts > M2 signed webhook and onboarding > keeps long review drafts within the button-message body limit using complete sentences
+[monitor] "main" loop is not running — restarting
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > saves a client from a conversational joined-on message, including copied Unicode spacing
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects an invalid date in a conversational client message
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
@@ -20,19 +29,19 @@ whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > accepts spaced reviewer labels and direct-address reviews despite harmless AI rewriting differences
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > saves a client from a conversational joined-on message, including copied Unicode spacing 249ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects an invalid date in a conversational client message 23ms
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > recognizes a conversational review trigger and a review following the trigger
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > keeps long review drafts within the button-message body limit using complete sentences 323ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > saves a client from a conversational joined-on message, including copied Unicode spacing 43ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects an invalid date in a conversational client message 22ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > accepts spaced reviewer labels and direct-address reviews despite harmless AI rewriting differences 22ms
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > recognizes a conversational review trigger and a review following the trigger
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > accepts a reviewer name with spaces around the colon
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > accepts spaced reviewer labels and direct-address reviews despite harmless AI rewriting differences 157ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > recognizes a conversational review trigger and a review following the trigger 40ms
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > keeps the client as I, addresses Mayuri in third person, and preserves formatting in the send button
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
@@ -45,6 +54,11 @@ whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > ignores emoji reactions without replying or calling AI
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["reaction"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > recognizes a conversational review trigger and a review following the trigger 38ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > accepts a reviewer name with spaces around the colon 19ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > keeps the client as I, addresses Mayuri in third person, and preserves formatting in the send button 17ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > adds paragraph spacing to long reviews and discards invented highlights 18ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > discards invented rewritten results without rejecting a valid source review 17ms
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
@@ -66,11 +80,7 @@ whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > accepts a reviewer name with spaces around the colon 20ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > keeps the client as I, addresses Mayuri in third person, and preserves formatting in the send button 18ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > adds paragraph spacing to long reviews and discards invented highlights 17ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > discards invented rewritten results without rejecting a valid source review 19ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > ignores emoji reactions without replying or calling AI 16ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > ignores emoji reactions without replying or calling AI 15ms
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > preserves emojis in a detailed review and returns both drafts
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
@@ -101,22 +111,22 @@ whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
-stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses the exact DESIGN ask and ready wording for a supplied client name
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses the exact DESIGN ask and each approved CTA for a supplied client name
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews 105ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews 101ms
  ✓ tests/m2.test.ts > M2 signed webhook and onboarding > preserves emojis in a detailed review and returns both drafts 17ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > logs exactly one safe line for an ignored phone-number ID mismatch 4ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > logs exactly one safe line for an ignored phone-number ID mismatch 3ms
  ✓ tests/m2.test.ts > M2 signed webhook and onboarding > logs invalid signatures, malformed JSON and missing configuration once each 2ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > logs status-only payloads without logging recipient numbers or status details 2ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > logs accepted and duplicate messages separately and sanitizes unknown message types 15ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > logs status-only payloads without logging recipient numbers or status details 1ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > logs accepted and duplicate messages separately and sanitizes unknown message types 16ms
  ✓ tests/m2.test.ts > M2 signed webhook and onboarding > verifies Meta's challenge and refuses a wrong token 1ms
  ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects unsigned and altered bodies before saving anything 2ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > fails closed when the app secret is missing 2ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > fails closed when the app secret is missing 1ms
  ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects malformed signed JSON 1ms
  ✓ tests/m2.test.ts > M2 signed webhook and onboarding > ignores delivery statuses and messages for a different agent number 2ms
  ✓ tests/m2.test.ts > M2 signed webhook and onboarding > welcomes the trainer without making an AI call 15ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates 33ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates 31ms
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > deduplicates simultaneous webhook retries without prompting for a client
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
@@ -147,15 +157,15 @@ whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > keeps trainer records and clients separate
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > uses the exact DESIGN ask and ready wording for a supplied client name 18ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > deduplicates simultaneous webhook retries without prompting for a client 19ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > records Meta 131031 as blocked without pretending the drafts were sent or scheduling the question 17ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > does not resend a partial sequence or ask for the next client after its ask fails 16ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > does not send legacy scheduled next-client questions 2ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > will not save a next client against another trainer's pending question 16ms
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > keeps trainer records and clients separate
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > uses the exact DESIGN ask and each approved CTA for a supplied client name 17ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > deduplicates simultaneous webhook retries without prompting for a client 16ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > records Meta 131031 as blocked without pretending the drafts were sent or scheduling the question 17ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > does not resend a partial sequence or ask for the next client after its ask fails 17ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > does not send legacy scheduled next-client questions 1ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > will not save a next client against another trainer's pending question 15ms
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects more than 2000 characters without calling AI
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
@@ -181,40 +191,40 @@ whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects invented recommendation words and names
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > keeps trainer records and clients separate 53ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects more than 2000 characters without calling AI 15ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > does not call Sarvam for voice notes in M2 14ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > uses a copy placeholder on AI failure 17ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > keeps trainer records and clients separate 52ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects more than 2000 characters without calling AI 14ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > does not call Sarvam for voice notes in M2 15ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > uses a copy placeholder on AI failure 15ms
  ✓ tests/m2.test.ts > M2 signed webhook and onboarding > never sends a sharing ask for an unhappy or short input 29ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects invented recommendation words and names 14ms
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects bad instructor-initiated client dates without creating a pending question
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
 stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects bad instructor-initiated client dates without creating a pending question
 whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
 
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects invented recommendation words and names 15ms
  ✓ tests/m2.test.ts > M2 signed webhook and onboarding > limits AI calls to 100 an hour globally 24ms
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects bad instructor-initiated client dates without creating a pending question 28ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects bad instructor-initiated client dates without creating a pending question 29ms
  ✓ tests/m2.test.ts > M2 provider and dates > records missing credentials and network failures without logging keys 1ms
  ✓ tests/m2.test.ts > M2 provider and dates > rejects a malformed successful send response 1ms
  ✓ tests/m2.test.ts > M2 provider and dates > parses dates using IST, rejects future dates, and handles a missing year 1ms
 stderr | tests/m3.test.ts > sends an eligible dev client one nudge and a check-in-only button; repeated ticks never duplicate it
 [monitor] "main" loop is not running — restarting
 
- ✓ tests/m3.test.ts > sends an eligible dev client one nudge and a check-in-only button; repeated ticks never duplicate it 114ms
- ✓ tests/m3.test.ts > never nudges future clients, stays silent when no one is due, and catches up overdue clients 41ms
- ✓ tests/m3.test.ts > requires 9am IST and an enabled approved template in production 20ms
- ✓ tests/m3.test.ts > records blocked sends without marking clients checked in or sending duplicate retries 20ms
+ ✓ tests/m3.test.ts > sends an eligible dev client one nudge and a check-in-only button; repeated ticks never duplicate it 113ms
+ ✓ tests/m3.test.ts > never nudges future clients, stays silent when no one is due, and catches up overdue clients 65ms
+ ✓ tests/m3.test.ts > requires 9am IST and an enabled approved template in production 21ms
+ ✓ tests/m3.test.ts > records blocked sends without marking clients checked in or sending duplicate retries 21ms
  ✓ tests/m3.test.ts > lists only the requesting trainer's clients in the current IST week 3ms
  ✓ tests/m3.test.ts > recognizes Add client and Who's due commands without AI 8ms
  ✓ tests/m3.test.ts > does not trust an early due date when the minimum wait period has not passed 1ms
- ✓ tests/m3.test.ts > continues beyond 50 clients and does not let blocked clients hide later ones 662ms
- ✓ tests/m3.test.ts > lists clients in batches of at most five lines and uses the copy placeholder for an empty week 8ms
+ ✓ tests/m3.test.ts > continues beyond 50 clients and does not let blocked clients hide later ones 629ms
+ ✓ tests/m3.test.ts > lists clients in batches of at most five lines and uses the copy placeholder for an empty week 6ms
  ✓ tests/m3.test.ts > does not use the today-only production template for overdue clients 1ms
- ✓ tests/m3.test.ts > records a network failure without marking the combined nudge sent or retrying it 15ms
- ✓ tests/drafting.integration.test.ts > runs the real Convex Agent for one isolated review, with OpenAI mocked 140ms
+ ✓ tests/m3.test.ts > records a network failure without marking the combined nudge sent or retrying it 14ms
+ ✓ tests/drafting.integration.test.ts > runs the real Convex Agent for one isolated review, with OpenAI mocked 128ms
 
  Test Files  3 passed (3)
-      Tests  51 passed (51)
-   Start at  20:19:38
-   Duration  2.72s (tests 85%, transform 9%, import 5%)
+      Tests  52 passed (52)
+   Start at  20:27:41
+   Duration  2.64s (tests 85%, transform 9%, import 5%)

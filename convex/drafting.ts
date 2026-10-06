@@ -45,6 +45,7 @@ export const fromText = internalAction({
         return passage === undefined || passage === original ? original : groupWording(original);
       });
       const recommendation = formatRecommendation(wording, parsed.highlights);
+      if (!recommendation) return { read: "error", ...empty };
       return { read: "happy", recommendation, ask: copy.ask(clientName), clientName };
     } catch (error) {
       // Log only fixed diagnostic categories, never provider messages, keys,

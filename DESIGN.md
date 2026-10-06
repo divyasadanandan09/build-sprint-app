@@ -89,7 +89,7 @@ The agent has no visual design of its own. It looks like WhatsApp because it is 
 - **One action per message.** Use WhatsApp reply buttons (max 3, titles max 20 characters) or one URL button (text max 20 characters). Never ask her to type a command.
 - **Short.** No message over 6 lines, except a draft she is going to send.
 - **Drafts for clients go in their own message**, with nothing else in it, so she can long-press and forward or copy it whole.
-- **Owner update, 6 Oct:** show the recommendation and personalized ask as two separate plain-text messages, with separate URL buttons, each containing only its own draft. The first button says **Send revised review**. The second button says **Ask client to post**, as approved by the owner. WhatsApp’s URL button cannot deliver two separate messages in one tap.
+- **Owner update, 6 Oct:** send exactly two draft messages: recommendation with its own URL button in the same message, then personalized ask with its own URL button in the same message. Each URL contains only its own draft. Do not send separate duplicate instructions or standalone copies of the drafts. The first button says **Send revised review**. The second button says **Ask client to post**, as approved by the owner. WhatsApp’s URL button cannot deliver two separate messages in one tap.
 - **Sending to a client** always uses a URL button, **Send to client**, that opens `https://wa.me/?text={draft}`. WhatsApp asks her which chat to send to. We never need the client's number.
 - **Slow replies:** if a reply will take more than 3 seconds, show the typing indicator. Never send a "please wait" message.
 - **Anything she types that the agent doesn't understand** gets: "I didn't catch that. You can paste a review, forward a client's reply, or tell me a new client's name and start date."
@@ -103,9 +103,8 @@ The agent has no visual design of its own. It looks like WhatsApp because it is 
 |---|---|
 | Welcome | Hi! I help your happy clients recommend you in their society groups. Paste one Google review a client left you, or forward something a happy client said. |
 | She sends a review | (typing indicator) |
-| Draft 1 | The recommendation, in the client's own words, in its own message. |
-| Draft 2 | The ask, in her voice, in its own message. Example: "Priya, thank you for your lovely review! I turned your words into a short note. Would you be okay sharing it in your society group?" |
-| Then | Priya's tweaked review to be shared in society wa group. forward review to Priya. [Send to client] |
+| Draft 1 | The recommendation, in the client's own words, with its Send revised review button in the same message. |
+| Draft 2 | The ask, in her voice, with its Ask client to post button in the same message. Example: "Priya, thank you for your lovely review! I turned your words into a short note. Would you be okay sharing it in your society group?" |
 | Error | I couldn't read that one. Paste it as text, or try a different review. |
 
 - **The recommendation follows the cleaning rules in 4.5.** Never add a claim she didn't make.

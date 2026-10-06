@@ -32,3 +32,7 @@ One line per milestone, added after I confirm it works: date, milestone, what no
 - 6 Oct, M3 nudge layout: owner screenshot confirmed receipt; combined nudge and check-in into one message with blank-line spacing and one button that shares only the check-in, 51 mocked tests/compile/demo pass, dev deployed; no commit or push.
 
 - 6 Oct, M3 approved by owner: combined check-in nudge and Send to client button verified on phone, clients/due lists and duplicate prevention pass 51 mocked tests; approved for commit/push/production deploy with production nudges gated until Meta template approval; no M4 started.
+
+- 6 Oct, M2 compact messages: revised review/CTA and personalized ask/CTA now form exactly two messages, duplicated text/instructions removed, long drafts fit button-message limit via whole-sentence trimming; 52 mocked tests and compile pass, dev deployed for phone check; uncommitted, no M4.
+
+- 6 Oct, M2 compact layout confirmed by owner screenshot: exactly two draft/CTA messages work on phone, 52 mocked tests and compile pass; owner requested M4 next.

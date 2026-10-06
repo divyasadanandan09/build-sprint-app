@@ -45,9 +45,7 @@ export const process = internalAction({
         if (result.read !== "happy" || !result.recommendation || !result.ask) failure = await send("error", result.read === "busy" ? copy.busy : result.read === "off_topic" ? copy.fallback : copy.reviewError);
         else {
           const draftId = await ctx.runMutation(internal.m2Store.saveDraft, { inboundId: message.inboundId, recommendation: result.recommendation, ask: result.ask, clientName: result.clientName });
-          failure = await send("recommendation", result.recommendation);
-          if (!failure) failure = await send("ask", result.ask);
-          if (!failure) failure = await deliver(ctx, message.trainerId, message.inboundId, "send-button", buttonPayload(message.phone, copy.ready(result.clientName), result.recommendation, copy.sendReview));
+          failure = await deliver(ctx, message.trainerId, message.inboundId, "send-button", buttonPayload(message.phone, result.recommendation, result.recommendation, copy.sendReview));
           if (!failure) failure = await deliver(ctx, message.trainerId, message.inboundId, "ask-button", buttonPayload(message.phone, result.ask, result.ask, copy.sendAsk));
         }
       }

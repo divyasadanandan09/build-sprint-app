@@ -19,18 +19,29 @@ export function formatRecommendation(passages: string[], highlights: unknown): s
     typeof phrase === "string" && phrase.length >= 4 && phrase.length <= 120 && !/[\n*]/.test(phrase) && text.includes(phrase)
   ).slice(0, 2) : [];
   // Two sentences per paragraph once a draft is long enough to need spacing.
-  const sentences = text.match(/[^.!?]+[.!?]+(?:[”’"']|\s|$)*|[^.!?]+$/gu) ?? [text];
-  const paragraphs: string[] = [];
-  if (text.length > 280) {
-    for (let i = 0; i < sentences.length; i += 2) paragraphs.push(sentences.slice(i, i + 2).join("").trim());
-  } else paragraphs.push(text);
-  return paragraphs.map((paragraph) => {
-    const ranges: { start: number; end: number }[] = [];
-    for (const phrase of phrases) {
-      const start = paragraph.indexOf(phrase), end = start + phrase.length;
-      if (start >= 0 && !ranges.some((range) => start < range.end && end > range.start)) ranges.push({ start, end });
-    }
-    for (const range of ranges.sort((a, b) => b.start - a.start)) paragraph = paragraph.slice(0, range.start) + "*" + paragraph.slice(range.start, range.end) + "*" + paragraph.slice(range.end);
-    return paragraph;
-  }).join("\n\n");
+  const sentences = text.match(/[\s\S]*?[.!?](?:[”’"'])?(?=\s|$)|[\s\S]+$/gu) ?? [text];
+  const render = (sentences: string[]) => {
+    const paragraphs: string[] = [];
+    if (text.length > 280) {
+      for (let i = 0; i < sentences.length; i += 2) paragraphs.push(sentences.slice(i, i + 2).join("").trim());
+    } else paragraphs.push(sentences.join(""));
+    return paragraphs.map((paragraph) => {
+      const ranges: { start: number; end: number }[] = [];
+      for (const phrase of phrases) {
+        const start = paragraph.indexOf(phrase), end = start + phrase.length;
+        if (start >= 0 && !ranges.some((range) => start < range.end && end > range.start)) ranges.push({ start, end });
+      }
+      for (const range of ranges.sort((a, b) => b.start - a.start)) paragraph = paragraph.slice(0, range.start) + "*" + paragraph.slice(range.start, range.end) + "*" + paragraph.slice(range.end);
+      return paragraph;
+    }).join("\n\n");
+  };
+  // An interactive message body has a smaller limit than plain text. Trim
+  // whole trailing sentences, never part of a claim, to keep draft + CTA one
+  // message. An unshortenable oversized sentence is rejected by the action.
+  while (sentences.length) {
+    const result = render(sentences);
+    if (result.length <= 1024) return result;
+    sentences.pop();
+  }
+  return "";
 }

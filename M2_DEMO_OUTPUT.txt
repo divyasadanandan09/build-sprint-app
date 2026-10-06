@@ -5,6 +5,30 @@
 
  RUN  v5.0.3 /Users/divyaabhilash/build-sprint-app
 
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stderr | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
+[monitor] "main" loop is not running — restarting
+
+stderr | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
+[monitor] "main" loop is not running — restarting
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
+MOCK EXCHANGE — made-up review; no provider calls
+Trainer: Priya: I enjoy the dance classes. I look forward to the music every morning.
+Agent: I enjoy the dance classes. I look forward to the music every morning.
+Button: Send revised review → https://wa.me/?text=I%20enjoy%20the%20dance%20classes.%20I%20look%20forward%20to%20the%20music%20every%20morning.
+Agent: Priya, thank you for your lovely review! I turned your words into a short note. Would you be okay sharing it in your society group?
+Button: Ask client to post → https://wa.me/?text=Priya%2C%20thank%20you%20for%20your%20lovely%20review!%20I%20turned%20your%20words%20into%20a%20short%20note.%20Would%20you%20be%20okay%20sharing%20it%20in%20your%20society%20group%3F
+Trainer: Ananya, 12 Sept
+Agent: Got it. I'll remind you when Ananya hits week 4, on 10 Oct 2026.
+Saved client: Ananya; start 2026-09-12; due 2026-10-10; still present on a new read
+
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > keeps long review drafts within the button-message body limit using complete sentences
  ↓ tests/m2.test.ts > M2 signed webhook and onboarding > saves a client from a conversational joined-on message, including copied Unicode spacing
  ↓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects an invalid date in a conversational client message
  ↓ tests/m2.test.ts > M2 signed webhook and onboarding > accepts spaced reviewer labels and direct-address reviews despite harmless AI rewriting differences
@@ -26,33 +50,8 @@
  ↓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects malformed signed JSON
  ↓ tests/m2.test.ts > M2 signed webhook and onboarding > ignores delivery statuses and messages for a different agent number
  ↓ tests/m2.test.ts > M2 signed webhook and onboarding > welcomes the trainer without making an AI call
-stdout | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
-whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
-
-stderr | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
-[monitor] "main" loop is not running — restarting
-
-stderr | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
-[monitor] "main" loop is not running — restarting
-
-stdout | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
-whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
-
-stdout | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
-MOCK EXCHANGE — made-up review; no provider calls
-Trainer: Priya: I enjoy the dance classes. I look forward to the music every morning.
-Agent: I enjoy the dance classes. I look forward to the music every morning.
-Agent: Priya, thank you for your lovely review! I turned your words into a short note. Would you be okay sharing it in your society group?
-Agent: Priya's tweaked review to be shared in society wa group. forward review to Priya.
-Button: Send revised review → https://wa.me/?text=I%20enjoy%20the%20dance%20classes.%20I%20look%20forward%20to%20the%20music%20every%20morning.
-Agent: Priya, thank you for your lovely review! I turned your words into a short note. Would you be okay sharing it in your society group?
-Button: Ask client to post → https://wa.me/?text=Priya%2C%20thank%20you%20for%20your%20lovely%20review!%20I%20turned%20your%20words%20into%20a%20short%20note.%20Would%20you%20be%20okay%20sharing%20it%20in%20your%20society%20group%3F
-Trainer: Ananya, 12 Sept
-Agent: Got it. I'll remind you when Ananya hits week 4, on 10 Oct 2026.
-Saved client: Ananya; start 2026-09-12; due 2026-10-10; still present on a new read
-
- ✓ tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates 429ms
- ↓ tests/m2.test.ts > M2 signed webhook and onboarding > uses the exact DESIGN ask and ready wording for a supplied client name
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates 357ms
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > uses the exact DESIGN ask and each approved CTA for a supplied client name
  ↓ tests/m2.test.ts > M2 signed webhook and onboarding > deduplicates simultaneous webhook retries without prompting for a client
  ↓ tests/m2.test.ts > M2 signed webhook and onboarding > records Meta 131031 as blocked without pretending the drafts were sent or scheduling the question
  ↓ tests/m2.test.ts > M2 signed webhook and onboarding > does not resend a partial sequence or ask for the next client after its ask fails
@@ -71,7 +70,6 @@ Saved client: Ananya; start 2026-09-12; due 2026-10-10; still present on a new r
  ↓ tests/m2.test.ts > M2 provider and dates > parses dates using IST, rejects future dates, and handles a missing year
 
  Test Files  1 passed (1)
-      Tests  1 passed | 38 skipped (39)
-   Start at  17:30:35
-   Duration  765ms (tests 65%, transform 27%, import 8%)
-
+      Tests  1 passed | 39 skipped (40)
+   Start at  20:29:07
+   Duration  693ms (tests 60%, transform 31%, import 8%, worker 1%)

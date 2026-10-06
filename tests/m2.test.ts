@@ -56,6 +56,18 @@ beforeEach(() => {
 afterEach(async () => { await drain(); vi.useRealTimers(); vi.unstubAllGlobals(); vi.unstubAllEnvs(); });
 
 describe("M2 signed webhook and onboarding", () => {
+  it("keeps long review drafts within the button-message body limit using complete sentences", async () => {
+    const long = Array(20).fill(review).join(" ");
+    generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [long], highlights: [] }) });
+    await post(envelope("Priya: " + long)); await drain();
+    const messages = calls.filter((c) => c.interactive);
+    expect(messages).toHaveLength(2);
+    const draft = messages[0].interactive.body.text;
+    expect(draft.length).toBeLessThanOrEqual(1024);
+    expect(draft.endsWith(".")).toBe(true);
+    expect(long.startsWith(draft.replaceAll("\n\n", " "))).toBe(true);
+    expect(decodeURIComponent(messages[0].interactive.action.parameters.url.split("?text=")[1])).toBe(draft);
+  });
   it("saves a client from a conversational joined-on message, including copied Unicode spacing", async () => {
     await post(envelope("New client\u202fAnanya joined on 12 Sept\u202f\u2060.", "natural-client")); await drain();
     const client = (await records("clients"))[0];
@@ -87,7 +99,7 @@ describe("M2 signed webhook and onboarding", () => {
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [review] }) });
     await post(envelope("Priya : " + review)); await drain();
     expect(await records("drafts")).toHaveLength(1);
-    expect(calls.some((c) => c.text?.body === copy.ask("Priya"))).toBe(true);
+    expect(calls.some((c) => c.interactive?.body.text === copy.ask("Priya"))).toBe(true);
   });
   it("keeps the client as I, addresses Mayuri in third person, and preserves formatting in the send button", async () => {
     const original = "I love your classes. I feel more energetic.";
@@ -95,7 +107,7 @@ describe("M2 signed webhook and onboarding", () => {
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [original], groupPassages: [wording], highlights: ["I feel more energetic"] }) });
     await post(envelope("Priya: " + original)); await drain();
     const expected = "I love Mayuri's classes. *I feel more energetic*.";
-    expect(calls.find((c) => c.text?.body === expected)).toBeDefined();
+    expect(calls.find((c) => c.interactive?.body.text === expected)).toBeDefined();
     const button = calls.find((c) => c.interactive)?.interactive.action.parameters;
     expect(decodeURIComponent(button.url.split("?text=")[1])).toContain(expected);
   });
@@ -112,7 +124,7 @@ describe("M2 signed webhook and onboarding", () => {
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [review], groupPassages: [review + " I lost ten kilos."] }) });
     await post(envelope("Priya: " + review)); await drain();
     expect((await records("drafts"))[0].recommendation).toBe(review);
-    expect(calls.some((c) => c.text?.body?.includes("ten kilos"))).toBe(false);
+    expect(calls.some((c) => (c.text?.body ?? c.interactive?.body.text)?.includes("ten kilos"))).toBe(false);
   });
   it("ignores emoji reactions without replying or calling AI", async () => {
     await post(envelope("", "reaction-test", fakePhone, "reaction")); await drain();
@@ -130,8 +142,8 @@ describe("M2 signed webhook and onboarding", () => {
     const praise = review + " 😊💃🏽";
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [praise] }) });
     await post(envelope("Priya: " + praise)); await drain();
-    expect(calls.some((c) => c.text?.body === praise)).toBe(true);
-    expect(calls.some((c) => c.text?.body === copy.ask("Priya"))).toBe(true);
+    expect(calls.some((c) => c.interactive?.body.text === praise)).toBe(true);
+    expect(calls.some((c) => c.interactive?.body.text === copy.ask("Priya"))).toBe(true);
   });
   it("logs exactly one safe line for an ignored phone-number ID mismatch", async () => {
     const logger = vi.spyOn(console, "info").mockImplementation(() => {});
@@ -214,14 +226,14 @@ describe("M2 signed webhook and onboarding", () => {
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [review] }) });
     expect((await post(envelope("Priya: " + review))).status).toBe(200); await drain();
     const messages = calls.filter((c) => !("typing_indicator" in c));
-    expect(messages[0].text.body).toBe(review);
-    expect(messages[1].text.body).toBe(copy.ask("Priya"));
-    const button = messages[2].interactive.action.parameters;
+    expect(messages[0].interactive.body.text).toBe(review);
+    expect(messages[1].interactive.body.text).toBe(copy.ask("Priya"));
+    const button = messages[0].interactive.action.parameters;
     expect(button.display_text).toBe("Send revised review");
     expect(decodeURIComponent(button.url.split("?text=")[1])).toBe(review);
-    expect(messages).toHaveLength(4);
+    expect(messages).toHaveLength(2);
     expect(messages.filter((message) => message.interactive)).toHaveLength(2);
-    const askButton = messages[3].interactive.action.parameters;
+    const askButton = messages[1].interactive.action.parameters;
     expect(askButton.display_text).toBe("Ask client to post");
     expect(decodeURIComponent(askButton.url.split("?text=")[1])).toBe(copy.ask("Priya"));
     expect(askButton.display_text.length).toBeLessThanOrEqual(20);
@@ -248,12 +260,12 @@ describe("M2 signed webhook and onboarding", () => {
       console.info("Saved client: Ananya; start 2026-09-12; due 2026-10-10; still present on a new read");
     }
   });
-  it("uses the exact DESIGN ask and ready wording for a supplied client name", async () => {
+  it("uses the exact DESIGN ask and each approved CTA for a supplied client name", async () => {
     const named = "Priya: " + review;
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [review] }) });
     await post(envelope(named)); await drain();
-    expect(calls.some((c) => c.text?.body === copy.ask("Priya"))).toBe(true);
-    expect(calls.some((c) => c.interactive?.body.text === copy.ready("Priya"))).toBe(true);
+    expect(calls.some((c) => c.interactive?.body.text === copy.ask("Priya"))).toBe(true);
+    expect(calls.find((c) => c.interactive?.action.parameters.display_text === copy.sendReview)?.interactive.body.text).toBe(review);
   });
   it("deduplicates simultaneous webhook retries without prompting for a client", async () => {
     await Promise.all([post(envelope()), post(envelope())]); await drain();
@@ -271,7 +283,7 @@ describe("M2 signed webhook and onboarding", () => {
     const normalFetch = globalThis.fetch;
     vi.stubGlobal("fetch", vi.fn(async (url: string, options: RequestInit) => {
       const payload = JSON.parse(options.body as string);
-      if (payload.text?.body === copy.ask(null)) return new Response(JSON.stringify({ error: { code: 131031 } }), { status: 400 });
+      if (payload.interactive?.body.text === copy.ask(null)) return new Response(JSON.stringify({ error: { code: 131031 } }), { status: 400 });
       return normalFetch(url, options);
     }));
     await post(envelope()); await drain();
