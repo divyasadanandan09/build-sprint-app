@@ -1,0 +1,77 @@
+
+> build-sprint-app@1.0.0 demo:m2
+> M2_SHOW_EXCHANGE=1 vitest run tests/m2.test.ts --testNamePattern="sends separate drafts" --reporter=verbose
+
+
+ RUN  v5.0.3 /Users/divyaabhilash/build-sprint-app
+
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > saves a client from a conversational joined-on message, including copied Unicode spacing
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects an invalid date in a conversational client message
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > accepts spaced reviewer labels and direct-address reviews despite harmless AI rewriting differences
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > recognizes a conversational review trigger and a review following the trigger
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > accepts a reviewer name with spaces around the colon
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > keeps the client as I, addresses Mayuri in third person, and preserves formatting in the send button
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > adds paragraph spacing to long reviews and discards invented highlights
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > discards invented rewritten results without rejecting a valid source review
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > ignores emoji reactions without replying or calling AI
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > preserves emojis in a detailed review and returns both drafts
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > logs exactly one safe line for an ignored phone-number ID mismatch
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > logs invalid signatures, malformed JSON and missing configuration once each
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > logs status-only payloads without logging recipient numbers or status details
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > logs accepted and duplicate messages separately and sanitizes unknown message types
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > verifies Meta's challenge and refuses a wrong token
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects unsigned and altered bodies before saving anything
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > fails closed when the app secret is missing
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects malformed signed JSON
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > ignores delivery statuses and messages for a different agent number
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > welcomes the trainer without making an AI call
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stderr | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
+[monitor] "main" loop is not running — restarting
+
+stderr | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
+[monitor] "main" loop is not running — restarting
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates
+MOCK EXCHANGE — made-up review; no provider calls
+Trainer: Priya: I enjoy the dance classes. I look forward to the music every morning.
+Agent: I enjoy the dance classes. I look forward to the music every morning.
+Agent: Priya, thank you for your lovely review! I turned your words into a short note. Would you be okay sharing it in your society group?
+Agent: Priya's tweaked review to be shared in society wa group. forward review to Priya.
+Button: Send revised review → https://wa.me/?text=I%20enjoy%20the%20dance%20classes.%20I%20look%20forward%20to%20the%20music%20every%20morning.
+Agent: Priya, thank you for your lovely review! I turned your words into a short note. Would you be okay sharing it in your society group?
+Button: Ask client to post → https://wa.me/?text=Priya%2C%20thank%20you%20for%20your%20lovely%20review!%20I%20turned%20your%20words%20into%20a%20short%20note.%20Would%20you%20be%20okay%20sharing%20it%20in%20your%20society%20group%3F
+Trainer: Ananya, 12 Sept
+Agent: Got it. I'll remind you when Ananya hits week 4, on 10 Oct 2026.
+Saved client: Ananya; start 2026-09-12; due 2026-10-10; still present on a new read
+
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > sends separate drafts and buttons without a next-client question; saves a client the instructor initiates 429ms
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > uses the exact DESIGN ask and ready wording for a supplied client name
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > deduplicates simultaneous webhook retries without prompting for a client
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > records Meta 131031 as blocked without pretending the drafts were sent or scheduling the question
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > does not resend a partial sequence or ask for the next client after its ask fails
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > does not send legacy scheduled next-client questions
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > will not save a next client against another trainer's pending question
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > keeps trainer records and clients separate
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects more than 2000 characters without calling AI
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > does not call Sarvam for voice notes in M2
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > uses a copy placeholder on AI failure
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > never sends a sharing ask for an unhappy or short input
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects invented recommendation words and names
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > limits AI calls to 100 an hour globally
+ ↓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects bad instructor-initiated client dates without creating a pending question
+ ↓ tests/m2.test.ts > M2 provider and dates > records missing credentials and network failures without logging keys
+ ↓ tests/m2.test.ts > M2 provider and dates > rejects a malformed successful send response
+ ↓ tests/m2.test.ts > M2 provider and dates > parses dates using IST, rejects future dates, and handles a missing year
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 38 skipped (39)
+   Start at  17:30:35
+   Duration  765ms (tests 65%, transform 27%, import 8%)
+

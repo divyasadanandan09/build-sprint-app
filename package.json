@@ -1,0 +1,31 @@
+{
+  "name": "build-sprint-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "convex dev",
+    "deploy": "convex deploy",
+    "check": "tsc --noEmit -p convex/tsconfig.json",
+    "test": "vitest run",
+    "test:m2": "vitest run tests/m2.test.ts tests/drafting.integration.test.ts --reporter=verbose",
+    "demo:m2": "M2_SHOW_EXCHANGE=1 vitest run tests/m2.test.ts --testNamePattern=\"sends separate drafts\" --reporter=verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ai-sdk/openai": "^4.0.84",
+    "@convex-dev/agent": "^0.7.4",
+    "@convex-dev/rate-limiter": "^0.4.0",
+    "@convex-dev/workflow": "^0.4.8",
+    "ai": "^7.0.128",
+    "convex": "^1.46.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "convex-test": "^0.0.60",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}

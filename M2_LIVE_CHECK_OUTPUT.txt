@@ -1,0 +1,53 @@
+M2 live-check output excerpts — 6 Oct 2026
+Made-up review only; no real people's data or secret values.
+
+Before fix:
+$ npx convex run drafting:fromText '{"text":"Priya: I enjoy the dance classes. I look forward to the music every morning."}'
+{
+  "ask": null,
+  "clientName": null,
+  "read": "busy",
+  "recommendation": null
+}
+
+After diagnostic instrumentation:
+[CONVEX ?(drafting:fromText)] [WARN] 'draft_failure' {
+  category: 'agent_thread_configuration',
+  errorType: 'Error',
+  status: null
+}
+
+Regression before fix:
+Tests  1 failed (1)
+Expected: "happy"
+Received: "busy"
+
+Regression after fix:
+Tests  1 passed (1)
+
+Live draft after fix:
+$ npx convex run drafting:fromText '{"text":"Priya: I enjoy the dance classes. I look forward to the music every morning."}'
+{
+  "ask": "Priya, thank you for your lovely review! I turned your words into a short note. Would you be okay sharing it in your society group?",
+  "clientName": "Priya",
+  "read": "happy",
+  "recommendation": "I enjoy the dance classes. I look forward to the music every morning."
+}
+
+$ npx convex dev --once
+✔ 10:28:33 Convex functions ready! (4.29s)
+
+Read-only and empty-event diagnostics (credentials kept in memory):
+OpenAI model-list check: HTTP 200
+Configured model gpt-6.1-sol available: True
+Live dev verification: 200 challenge matched=True
+Signed live webhook: 200 EVENT_RECEIVED
+Meta webhook configuration read: HTTP 200
+No callback configuration returned
+Meta app subscriptions: 0
+inbound: no rows returned
+outbound: no rows returned
+pending: no rows returned
+clients: no rows returned
+
+No real WhatsApp messages were sent by these probes.

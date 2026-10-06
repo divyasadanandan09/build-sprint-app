@@ -1,0 +1,16 @@
+// Fixed copy from DESIGN.md. Dynamic recommendation text is the client's text.
+export const copy = {
+  sendReview: "Send revised review",
+  reviewInvitation: "[COPY NEEDED: conversational invitation to paste a review after the instructor says This is a review]",
+  sendAsk: "Ask client to post",
+  welcome: "Hi! I help your happy clients recommend you in their society groups. Paste one Google review a client left you, or forward something a happy client said.",
+  reviewError: "I couldn't read that one. Paste it as text, or try a different review.",
+  nextClient: "Who's the next client coming up on 4 weeks? Send me her name and start date, like: Ananya, 12 Sept.",
+  dateError: "I need a name and a date, like: Ananya, 12 Sept.",
+  fallback: "I didn't catch that. You can paste a review, forward a client's reply, or tell me a new client's name and start date.",
+  busy: "[COPY NEEDED: busy or AI rate-limit reply]",
+  duplicateClient: "[COPY NEEDED: a client with this name already has a different start date]",
+  ask: (name: string | null) => name ? `${name}, thank you for your lovely review! I turned your words into a short note. Would you be okay sharing it in your society group?` : "[COPY NEEDED: review ask when the client's name is unknown]",
+  ready: (name: string | null) => name ? `${name}'s tweaked review to be shared in society wa group. forward review to ${name}.` : "[COPY NEEDED: drafts-ready message when the client's name is unknown]",
+  saved: (name: string, date: string) => `Got it. I'll remind you when ${name} hits week 4, on ${date}.`,
+};
