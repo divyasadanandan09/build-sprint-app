@@ -98,7 +98,7 @@ From opening the link to the first value:
 
 The instructor opens a WhatsApp link to the agent. It says: "Paste one Google review a client left you, or forward something a happy client said."
 She pastes a review.
-Within seconds she gets two messages: the neighbour-style recommendation in the client's words, and the ask to send that client.
+Owner update, 7 Oct: when the pasted review names the client, she gets one combined message containing the neighbour-style recommendation in the client's words and the ask to send that client, with one Send to client button. Unnamed reviews retain the earlier two-draft flow until the missing-name copy is supplied.
 She taps to send it to the client. That's the first small proof. The post follows when the client is ready.
 
 Login: not in v1. Her WhatsApp number is her account, and everything she shares is saved against it from the first message.

@@ -61,12 +61,14 @@ describe("M2 signed webhook and onboarding", () => {
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [long], highlights: [] }) });
     await post(envelope("Priya: " + long)); await drain();
     const messages = calls.filter((c) => c.interactive);
-    expect(messages).toHaveLength(2);
-    const draft = messages[0].interactive.body.text;
+    expect(messages).toHaveLength(1);
+    const body = messages[0].interactive.body.text;
+    const draft = body.slice(body.indexOf("I've been going to Mayuri's sessions and ") + "I've been going to Mayuri's sessions and ".length, -1);
+    expect(body.length).toBeLessThanOrEqual(1024);
     expect(draft.length).toBeLessThanOrEqual(1024);
     expect(draft.endsWith(".")).toBe(true);
     expect(long.startsWith(draft.replaceAll("\n\n", " "))).toBe(true);
-    expect(decodeURIComponent(messages[0].interactive.action.parameters.url.split("?text=")[1])).toBe(draft);
+    expect(decodeURIComponent(messages[0].interactive.action.parameters.url.split("?text=")[1])).toBe(body);
   });
   it("saves a client from a conversational joined-on message, including copied Unicode spacing", async () => {
     await post(envelope("New client\u202fAnanya joined on 12 Sept\u202f\u2060.", "natural-client")); await drain();
@@ -99,7 +101,7 @@ describe("M2 signed webhook and onboarding", () => {
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [review] }) });
     await post(envelope("Priya : " + review)); await drain();
     expect(await records("drafts")).toHaveLength(1);
-    expect(calls.some((c) => c.interactive?.body.text === copy.ask("Priya"))).toBe(true);
+    expect(calls.some((c) => c.interactive?.body.text === copy.happyAsk("Priya", review))).toBe(true);
   });
   it("keeps the client as I, addresses Mayuri in third person, and preserves formatting in the send button", async () => {
     const original = "I love your classes. I feel more energetic.";
@@ -107,7 +109,7 @@ describe("M2 signed webhook and onboarding", () => {
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [original], groupPassages: [wording], highlights: ["I feel more energetic"] }) });
     await post(envelope("Priya: " + original)); await drain();
     const expected = "I love Mayuri's classes. *I feel more energetic*.";
-    expect(calls.find((c) => c.interactive?.body.text === expected)).toBeDefined();
+    expect(calls.find((c) => c.interactive?.body.text === copy.happyAsk("Priya", expected))).toBeDefined();
     const button = calls.find((c) => c.interactive)?.interactive.action.parameters;
     expect(decodeURIComponent(button.url.split("?text=")[1])).toContain(expected);
   });
@@ -138,12 +140,12 @@ describe("M2 signed webhook and onboarding", () => {
     }
     expect(generate).not.toHaveBeenCalled(); expect(await records("drafts")).toHaveLength(0);
   });
-  it("preserves emojis in a detailed review and returns both drafts", async () => {
+  it("preserves emojis in a detailed review and its combined draft", async () => {
     const praise = review + " 😊💃🏽";
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [praise] }) });
     await post(envelope("Priya: " + praise)); await drain();
-    expect(calls.some((c) => c.interactive?.body.text === praise)).toBe(true);
-    expect(calls.some((c) => c.interactive?.body.text === copy.ask("Priya"))).toBe(true);
+    expect(calls.some((c) => c.interactive?.body.text === copy.happyAsk("Priya", praise))).toBe(true);
+    expect(calls.filter((c) => c.interactive)).toHaveLength(1);
   });
   it("logs exactly one safe line for an ignored phone-number ID mismatch", async () => {
     const logger = vi.spyOn(console, "info").mockImplementation(() => {});
@@ -222,21 +224,16 @@ describe("M2 signed webhook and onboarding", () => {
     expect((await post(envelope("Hi"))).status).toBe(200); await drain();
     expect(calls.map((c) => c.text?.body)).toEqual([copy.welcome]); expect(generate).not.toHaveBeenCalled(); expect(await records("trainers")).toHaveLength(1);
   });
-  it("sends separate drafts and buttons without a next-client question; saves a client the instructor initiates", async () => {
+  it("sends a combined named-review draft without a next-client question; saves a client the instructor initiates", async () => {
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [review] }) });
     expect((await post(envelope("Priya: " + review))).status).toBe(200); await drain();
     const messages = calls.filter((c) => !("typing_indicator" in c));
-    expect(messages[0].interactive.body.text).toBe(review);
-    expect(messages[1].interactive.body.text).toBe(copy.ask("Priya"));
+    const combined = copy.happyAsk("Priya", review);
+    expect(messages[0].interactive.body.text).toBe(combined);
     const button = messages[0].interactive.action.parameters;
-    expect(button.display_text).toBe("Send revised review");
-    expect(decodeURIComponent(button.url.split("?text=")[1])).toBe(review);
-    expect(messages).toHaveLength(2);
-    expect(messages.filter((message) => message.interactive)).toHaveLength(2);
-    const askButton = messages[1].interactive.action.parameters;
-    expect(askButton.display_text).toBe("Ask client to post");
-    expect(decodeURIComponent(askButton.url.split("?text=")[1])).toBe(copy.ask("Priya"));
-    expect(askButton.display_text.length).toBeLessThanOrEqual(20);
+    expect(button.display_text).toBe("Send to client");
+    expect(decodeURIComponent(button.url.split("?text=")[1])).toBe(combined);
+    expect(messages).toHaveLength(1);
     expect(calls.some((c) => c.text?.body === copy.nextClient)).toBe(false);
     expect(generate).toHaveBeenCalledTimes(1);
     expect(await records("pending")).toHaveLength(0);
@@ -260,12 +257,12 @@ describe("M2 signed webhook and onboarding", () => {
       console.info("Saved client: Ananya; start 2026-09-12; due 2026-10-10; still present on a new read");
     }
   });
-  it("uses the exact DESIGN ask and each approved CTA for a supplied client name", async () => {
+  it("uses the exact DESIGN combined ask and button for a supplied client name", async () => {
     const named = "Priya: " + review;
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [review] }) });
     await post(envelope(named)); await drain();
-    expect(calls.some((c) => c.interactive?.body.text === copy.ask("Priya"))).toBe(true);
-    expect(calls.find((c) => c.interactive?.action.parameters.display_text === copy.sendReview)?.interactive.body.text).toBe(review);
+    expect(calls.some((c) => c.interactive?.body.text === copy.happyAsk("Priya", review))).toBe(true);
+    expect(calls.find((c) => c.interactive?.action.parameters.display_text === "Send to client")?.interactive.body.text).toBe(copy.happyAsk("Priya", review));
   });
   it("deduplicates simultaneous webhook retries without prompting for a client", async () => {
     await Promise.all([post(envelope()), post(envelope())]); await drain();
@@ -318,8 +315,8 @@ describe("M2 signed webhook and onboarding", () => {
   it("rejects more than 2000 characters without calling AI", async () => {
     await post(envelope("x".repeat(2001))); await drain(); expect(generate).not.toHaveBeenCalled(); expect(calls.at(-1)?.text.body).toBe(copy.reviewError);
   });
-  it("does not call Sarvam for voice notes in M2", async () => {
-    await post(envelope("", "voice-message", fakePhone, "audio")); await drain(); expect(generate).not.toHaveBeenCalled(); expect(calls.at(-1)?.text.body).toBe(copy.reviewError);
+  it("rejects an audio envelope without a media ID before contacting Sarvam", async () => {
+    await post(envelope("", "voice-message", fakePhone, "audio")); await drain(); expect(generate).not.toHaveBeenCalled(); expect(calls.at(-1)?.text.body).toBe(copy.voiceError);
   });
   it("uses a copy placeholder on AI failure", async () => {
     generate.mockRejectedValue(new Error("Fake provider failure")); await post(envelope()); await drain();

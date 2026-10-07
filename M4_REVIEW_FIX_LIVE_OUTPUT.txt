@@ -1,0 +1,8 @@
+Command: npx convex run drafting:fromText with a made-up bold review; one real OpenAI call.
+
+{
+  "ask": "Test Nia, thank you for your lovely review! I turned your words into a short note. Would you be okay sharing it in your society group?",
+  "clientName": "Test Nia",
+  "read": "happy",
+  "recommendation": "I enjoy the music in class. *I look forward to every session.*"
+}

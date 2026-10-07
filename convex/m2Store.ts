@@ -5,14 +5,14 @@ import { workflow } from "./m2Workflow";
 import { deliveryState } from "./schema";
 
 export const receive = internalMutation({
-  args: { messages: v.array(v.object({ messageId: v.string(), phone: v.string(), name: v.string(), text: v.string(), type: v.string() })) }, returns: v.number(),
+  args: { messages: v.array(v.object({ messageId: v.string(), phone: v.string(), name: v.string(), text: v.string(), type: v.string(), forwarded: v.optional(v.boolean()), mediaId: v.optional(v.string()), responseId: v.optional(v.string()), })) }, returns: v.number(),
   handler: async (ctx, args): Promise<number> => {
     let received = 0;
     for (const message of args.messages) {
       if (await ctx.db.query("inbound").withIndex("by_message", (q) => q.eq("messageId", message.messageId)).unique()) continue;
       let trainer = await ctx.db.query("trainers").withIndex("by_phone", (q) => q.eq("phone", message.phone)).unique();
       const trainerId = trainer?._id ?? await ctx.db.insert("trainers", { phone: message.phone, name: message.name, waitDays: 28, joinedAt: Date.now() });
-      const inboundId = await ctx.db.insert("inbound", { messageId: message.messageId, trainerId, text: message.text, type: message.type, receivedAt: Date.now(), state: "queued" });
+      const inboundId = await ctx.db.insert("inbound", { messageId: message.messageId, trainerId, text: message.text, type: message.type, ...(message.forwarded !== undefined ? { forwarded: message.forwarded } : {}), ...(message.mediaId ? { mediaId: message.mediaId } : {}), ...(message.responseId ? { responseId: message.responseId } : {}), receivedAt: Date.now(), state: "queued" });
       await workflow.start(ctx, internal.m2Workflow.incoming, { inboundId });
       received++;
     }
@@ -21,7 +21,7 @@ export const receive = internalMutation({
 });
 export const claim = internalMutation({
   args: { inboundId: v.id("inbound") },
-  returns: v.union(v.null(), v.object({ inboundId: v.id("inbound"), trainerId: v.id("trainers"), messageId: v.string(), phone: v.string(), text: v.string(), type: v.string(), pendingId: v.union(v.id("pending"), v.null()) })),
+  returns: v.union(v.null(), v.object({ inboundId: v.id("inbound"), trainerId: v.id("trainers"), messageId: v.string(), phone: v.string(), text: v.string(), type: v.string(), forwarded: v.optional(v.boolean()), mediaId: v.optional(v.string()), responseId: v.optional(v.string()), pendingId: v.union(v.id("pending"), v.null()) })),
   handler: async (ctx, { inboundId }) => {
     const message = await ctx.db.get(inboundId);
     if (!message || message.state !== "queued") return null;
@@ -29,7 +29,7 @@ export const claim = internalMutation({
     if (!trainer) return null;
     await ctx.db.patch(inboundId, { state: "processing" });
     const pending = await ctx.db.query("pending").withIndex("by_trainer", (q) => q.eq("trainerId", trainer._id)).order("desc").first();
-    return { inboundId, trainerId: trainer._id, messageId: message.messageId, phone: trainer.phone, text: message.text, type: message.type, pendingId: pending?.state === "awaiting_client" ? pending._id : null };
+    return { inboundId, trainerId: trainer._id, messageId: message.messageId, phone: trainer.phone, text: message.text, type: message.type, ...(message.forwarded !== undefined ? { forwarded: message.forwarded } : {}), ...(message.mediaId ? { mediaId: message.mediaId } : {}), ...(message.responseId ? { responseId: message.responseId } : {}), pendingId: pending?.state === "awaiting_client" ? pending._id : null };
   },
 });
 export const finish = internalMutation({

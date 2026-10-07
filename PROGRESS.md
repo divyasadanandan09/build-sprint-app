@@ -36,3 +36,13 @@ One line per milestone, added after I confirm it works: date, milestone, what no
 - 6 Oct, M2 compact messages: revised review/CTA and personalized ask/CTA now form exactly two messages, duplicated text/instructions removed, long drafts fit button-message limit via whole-sentence trimming; 52 mocked tests and compile pass, dev deployed for phone check; uncommitted, no M4.
 
 - 6 Oct, M2 compact layout confirmed by owner screenshot: exactly two draft/CTA messages work on phone, 52 mocked tests and compile pass; owner requested M4 next.
+
+- 6 Oct, M4: client identification, voice transcription, one short-reply follow-up and private unhappy routing built for dev; 75 mocked tests/compile/Kannada demo pass and 2 real AI checks pass using generated speech/made-up feedback; phone confirmation pending, choices/missing copy in M4_NOTES.md, no M4 commit/push or M5.
+
+- 7 Oct, M4 review fix: owner phone screenshots confirmed client selection/happy drafts; named direct reviews now use one combined draft/button, appended contact links removed and bold markers normalized before recognition/AI; 79 mocked tests/compile pass, dev deployed, one additional real AI check (M4 total 3), phone recheck pending, no commit/push or M5.
+
+- 7 Oct, M4 context refinement: owner requested explicit instructor/session attribution; every recommendation now carries Mayuri's sessions context while preserving the client's words, combined/unnamed button content and limits verified by 81 mocked tests; compile/dev deploy pass, no extra real AI calls, phone check pending, uncommitted.
+
+- 7 Oct, M4 wording refinement: instructor/session context now flows naturally in eligible first-person reviews using the owner's attendance wording; exact music-review example, combined/unnamed button drafts and limits covered by 82 mocked tests; compile/dev deploy pass, no extra real AI calls, phone check pending, uncommitted.
+
+7 Oct: Owner confirmed M4 including instructor/session wording; 82 mocked tests and compile pass. Approved for commit, push and production deploy; M5 next.

@@ -1,3 +1,4 @@
+import { copy, reviewWording } from "./copy";
 // Only change direct address to the instructor; keep the client's "I" intact.
 export function groupWording(text: string): string {
   let wording = text.replace(/^Mayuri,\s+your\b/i, "Mayuri's")
@@ -13,7 +14,7 @@ export function groupWording(text: string): string {
   return wording;
 }
 
-export function formatRecommendation(passages: string[], highlights: unknown): string {
+export function formatRecommendation(passages: string[], highlights: unknown, maxLength = 1024): string {
   const text = passages.join(" ");
   const phrases = Array.isArray(highlights) ? highlights.filter((phrase): phrase is string =>
     typeof phrase === "string" && phrase.length >= 4 && phrase.length <= 120 && !/[\n*]/.test(phrase) && text.includes(phrase)
@@ -40,8 +41,23 @@ export function formatRecommendation(passages: string[], highlights: unknown): s
   // message. An unshortenable oversized sentence is rejected by the action.
   while (sentences.length) {
     const result = render(sentences);
-    if (result.length <= 1024) return result;
+    if (result.length <= maxLength) return result;
     sentences.pop();
   }
   return "";
+}
+
+export function combinedReview(name: string, recommendation: string): string | null {
+  let draft = copy.happyAsk(name, recommendation);
+  while (draft.length > 1024 && recommendation) {
+    const sentences = recommendation.match(/[\s\S]*?[.!?](?:\*)?(?=\s|$)|[\s\S]+$/gu) ?? [];
+    sentences.pop(); recommendation = sentences.join("").trim();
+    draft = copy.happyAsk(name, recommendation);
+  }
+  return recommendation ? draft : null;
+}
+
+export function labelledReview(recommendation: string): string | null {
+  const words = formatRecommendation([reviewWording(recommendation)], [], 1024);
+  return words || null;
 }

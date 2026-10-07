@@ -11,7 +11,7 @@ export function typingPayload(messageId: string): WhatsAppPayload {
   return { messaging_product: "whatsapp", status: "read", message_id: messageId, typing_indicator: { type: "text" } };
 }
 
-// The only WhatsApp network call in the app. Tests replace fetch; production
+// The only WhatsApp sending call in the app. Tests replace fetch; production
 // never substitutes a successful result when Meta refuses to send.
 export async function sendWhatsApp(payload: WhatsAppPayload): Promise<SendResult> {
   const token = process.env.WHATSAPP_TOKEN;
@@ -36,4 +36,11 @@ export async function sendWhatsApp(payload: WhatsAppPayload): Promise<SendResult
   } catch {
     return { ok: false, code: null, reason: "network_error" };
   }
+}
+
+export function replyButtons(to: string, body: string, options: { id: string; title: string }[]): WhatsAppPayload {
+  return { messaging_product: "whatsapp", to, type: "interactive", interactive: { type: "button", body: { text: body }, action: { buttons: options.map(reply => ({ type: "reply", reply })) } } };
+}
+export function replyList(to: string, body: string, rows: { id: string; title: string }[], button: string): WhatsAppPayload {
+  return { messaging_product: "whatsapp", to, type: "interactive", interactive: { type: "list", body: { text: body }, action: { button, sections: [{ rows }] } } };
 }

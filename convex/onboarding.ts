@@ -2,6 +2,8 @@ import { v } from "convex/values";
 import { internalAction, type ActionCtx } from "./_generated/server";
 import { internal } from "./_generated/api";
 import type { Id } from "./_generated/dataModel";
+import { normalizeReviewInput } from "./lib/reviewInput";
+import { combinedReview, labelledReview } from "./lib/recommendation";
 import { copy } from "./lib/copy";
 import { isClientMessage, parseClient } from "./lib/dates";
 import { buttonPayload, sendWhatsApp, textPayload, typingPayload, type WhatsAppPayload } from "./lib/whatsapp";
@@ -18,12 +20,15 @@ export const process = internalAction({
   handler: async (ctx, args): Promise<null> => {
     const message = await ctx.runMutation(internal.m2Store.claim, args);
     if (!message) return null;
+    message.text = normalizeReviewInput(message.text);
     const reviewTrigger = /^\s*this is a review(?:\s*[:.!]?\s*)([\s\S]*)$/i.exec(message.text);
     const reviewText = reviewTrigger ? reviewTrigger[1].trim() : message.text;
     let failure: string | null = null;
     try {
       const send = (part: string, body: string) => deliver(ctx, message.trainerId, message.inboundId, part, textPayload(message.phone, body));
-      if (message.type === "reaction") {
+      const replyResult = await ctx.runAction(internal.m4.handle, { inboundId: message.inboundId });
+      if (replyResult.handled) failure = replyResult.failure;
+      else if (message.type === "reaction") {
         // A reaction acknowledges an existing message; it is not a new review.
       }
       else if (message.type !== "text" || !message.text.trim() || message.text.length > 2000) failure = await send("error", copy.reviewError);
@@ -42,11 +47,18 @@ export const process = internalAction({
         // A refused typing indicator must not discard an otherwise valid review.
         await sendWhatsApp(typingPayload(message.messageId));
         const result = await ctx.runAction(internal.drafting.fromText, { text: reviewText });
-        if (result.read !== "happy" || !result.recommendation || !result.ask) failure = await send("error", result.read === "busy" ? copy.busy : result.read === "off_topic" ? copy.fallback : copy.reviewError);
+        if (result.read === "short" || result.read === "unhappy") failure = (await ctx.runAction(internal.m4.handle, { inboundId: message.inboundId, reviewRead: result.read })).failure;
+        else if (result.read !== "happy" || !result.recommendation || !result.ask) failure = await send("error", result.read === "busy" ? copy.busy : result.read === "off_topic" ? copy.fallback : copy.reviewError);
         else {
           const draftId = await ctx.runMutation(internal.m2Store.saveDraft, { inboundId: message.inboundId, recommendation: result.recommendation, ask: result.ask, clientName: result.clientName });
-          failure = await deliver(ctx, message.trainerId, message.inboundId, "send-button", buttonPayload(message.phone, result.recommendation, result.recommendation, copy.sendReview));
-          if (!failure) failure = await deliver(ctx, message.trainerId, message.inboundId, "ask-button", buttonPayload(message.phone, result.ask, result.ask, copy.sendAsk));
+          if (result.clientName) {
+            const combined = combinedReview(result.clientName, result.recommendation);
+            failure = combined ? await deliver(ctx, message.trainerId, message.inboundId, "send-button", buttonPayload(message.phone, combined, combined)) : await send("error", copy.reviewError);
+          } else {
+            const labelled = labelledReview(result.recommendation);
+            failure = labelled ? await deliver(ctx, message.trainerId, message.inboundId, "send-button", buttonPayload(message.phone, labelled, labelled, copy.sendReview)) : await send("error", copy.reviewError);
+            if (!failure) failure = await deliver(ctx, message.trainerId, message.inboundId, "ask-button", buttonPayload(message.phone, result.ask, result.ask, copy.sendAsk));
+          }
         }
       }
     } catch { failure = "processing_failed"; }

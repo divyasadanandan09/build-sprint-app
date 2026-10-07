@@ -1,0 +1,25 @@
+Real dev provider checks, 6 Oct 2026; generated speech and made-up review only.
+
+Meta upload of generated test speech: accepted
+Convex -> Meta media download -> Sarvam: ok
+Transcript of generated test speech: I enjoy the music in class. I look forward to every session.
+Temporary Convex test records: removed
+Temporary Meta test media: deleted
+
+Command: npx convex run drafting:fromText '{"text":"Test Ria: I enjoy the music in class. I look forward to every session.","replyMode":true}'
+{
+  "ask": "Test Ria, thank you for your lovely review! I turned your words into a short note. Would you be okay sharing it in your society group?",
+  "clientName": "Test Ria",
+  "read": "happy",
+  "recommendation": "I enjoy the music in class. *I look forward to every session.*"
+}
+
+Local codec verification, generated audio only:
+Synthetic two-minute Ogg/Opus: 5 chunks
+Chunk 1: decoded successfully with FFmpeg
+Chunk 2: decoded successfully with FFmpeg
+Chunk 3: decoded successfully with FFmpeg
+Chunk 4: decoded successfully with FFmpeg
+Chunk 5: decoded successfully with FFmpeg
+
+Real AI calls made for M4: 2 (Sarvam 1; OpenAI 1).

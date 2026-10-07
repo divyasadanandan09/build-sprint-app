@@ -4,7 +4,7 @@ export async function validSignature(raw: ArrayBuffer, signature: string | null,
   const bytes = Uint8Array.from((signature as string).slice(7).match(/../g)!, (hex) => parseInt(hex, 16));
   return crypto.subtle.verify("HMAC", key, bytes, raw);
 }
-export type Incoming = { messageId: string; phone: string; name: string; text: string; type: string };
+export type Incoming = { messageId: string; phone: string; name: string; text: string; type: string; forwarded?: boolean; mediaId?: string; responseId?: string };
 const object = (value: unknown): Record<string, unknown> | null => value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : null;
 // Log only designated IDs and a fixed vocabulary. Never log arbitrary types,
 // fields, contacts, sender numbers, message IDs, bodies, or provider errors.
@@ -47,7 +47,11 @@ export function inspectIncoming(body: unknown, phoneId: string | undefined) {
         const contact = Array.isArray(value.contacts) ? value.contacts.map(object).find((c) => c?.wa_id === msg.from) : null;
         const name = object(contact?.profile)?.name;
         const text = object(msg.text)?.body;
-        messages.push({ messageId: msg.id, phone: msg.from, name: typeof name === "string" ? name.slice(0, 80) : "", text: typeof text === "string" ? text.slice(0, 2001) : "", type: msg.type });
+        const forwarded = object(msg.context)?.forwarded === true || object(msg.context)?.frequently_forwarded === true;
+        const mediaId = object(msg.audio)?.id;
+        const interactive = object(msg.interactive);
+        const responseId = object(interactive?.button_reply)?.id ?? object(interactive?.list_reply)?.id ?? object(msg.button)?.payload;
+        messages.push({ ...(forwarded ? { forwarded } : {}), ...(typeof mediaId === "string" && /^\d{1,40}$/.test(mediaId) ? { mediaId } : {}), ...(typeof responseId === "string" ? { responseId: responseId.slice(0, 256) } : {}), messageId: msg.id, phone: msg.from, name: typeof name === "string" ? name.slice(0, 80) : "", text: typeof text === "string" ? text.slice(0, 2001) : "", type: msg.type });
       }
     }
   }

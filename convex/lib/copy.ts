@@ -1,5 +1,27 @@
+// Owner-approved neutral attendance context; never add duration or results.
+export function reviewWording(recommendation: string): string {
+  if (/\bMayuri\b/i.test(recommendation)) return recommendation;
+  if (/^\*?I\b/.test(recommendation) && /\b(?:class|classes|session|sessions)\b/i.test(recommendation)) {
+    const words = recommendation.replace(/\bin class\b/g, "in the class").replace(/\bevery sessions\b/g, "every session");
+    return `I've been going to Mayuri's sessions and ${words}`;
+  }
+  return `Mayuri's sessions:\n\n${recommendation}`;
+}
 // Fixed copy from DESIGN.md. Dynamic recommendation text is the client's text.
 export const copy = {
+  whose: "Whose reply is this?",
+  isReply: (name: string) => `Is this ${name}'s reply?`,
+  voiceError: "I couldn't hear that voice note clearly. Forward it again, or paste her words as text.",
+  transcriptLong: "[COPY NEEDED: voice transcript exceeds 2,000 characters]",
+  voiceLong: "[COPY NEEDED: voice note longer than two minutes]",
+  noWaiting: "[COPY NEEDED: forwarded reply with no waiting clients; ask for the client name]",
+  happy: (name: string) => `${name}'s happy! Here's her recommendation in her own words, with the ask. I only cleaned up grammar.`,
+  reviewContext: "Mayuri's sessions:",
+  happyAsk: (name: string, recommendation: string) => `${name}, so happy it's working for you! I put your words together below. Would you be okay forwarding it to your society group?\n\n"${reviewWording(recommendation)}"`,
+  short: (name: string) => `${name}'s reply is short. One easy question will help her say more. Pick one:`,
+  unsure: (name: string) => `I couldn't tell how ${name} feels from this. Which is closer?`,
+  unhappy: (name: string) => `${name} isn't enjoying it yet. Talk to her before anything else. Here's what she said:`,
+  unhappyDraft: (name: string) => `Thanks for telling me honestly, ${name}. Can we talk after Thursday's class? I want to make this right.`,
   nudge: (name: string) => `${name} hits week 4 today. Here's a check-in in your voice.`,
   overdueNudge: (name: string, date: string) => `[COPY NEEDED: nudge for ${name}, whose four-week date was ${date}]`,
   checkIn: (client: string, trainer: string) => trainer ? `Hi ${client}, it's ${trainer}! You've done 4 weeks now, how's it feeling?` : "[COPY NEEDED: check-in when the instructor name is unknown]",

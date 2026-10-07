@@ -113,6 +113,9 @@ The agent has no visual design of its own. It looks like WhatsApp because it is 
   - Error: "I need a name and a date, like: Ananya, 12 Sept."
 - **Conversational review trigger:** the instructor can send `This is a review`, then paste the review in her next message, or send `This is a review: {review}` together. The invitation response is `[COPY NEEDED: conversational invitation to paste a review after the instructor says This is a review]` until the owner supplies its exact wording. A name label accepts spaces around its colon.
 
+- **Owner correction, 7 Oct:** when a direct review includes the client's name, return one combined ask/recommendation message using 4.5's exact happy-ask wording, with one Send to client button. This supersedes the separate Draft 1 / Draft 2 layout above for named reviews. Reviews without a client name retain the earlier separate drafts and missing-name placeholder.
+- **Formatting input:** WhatsApp `*bold*` and pasted Markdown `**bold**` are presentation. Remove paired markers before recognizing the trigger/name or reading the review; keep the words, punctuation and paragraph breaks. Outgoing emphasis still follows the existing grounded-highlight rules.
+
 ### 4.2 The daily nudge
 - **Trigger:** 9am on any day one or more clients reach their wait period (4 weeks by default). Never earlier.
 - **This is a Meta-approved utility template**, because the agent is messaging her first. Submit it for approval in week 1 of the sprint.
@@ -145,6 +148,10 @@ The agent has no visual design of its own. It looks like WhatsApp because it is 
 - **Error:** "I couldn't hear that voice note clearly. Forward it again, or paste her words as text."
 - **Can't tell how she feels:** "I couldn't tell how Priya feels from this. Which is closer?" [Happy] [Short reply] [Not happy]
 
+- **M4 implementation choices, 6 Oct:** forwarding or sending a voice note starts client selection. Pasted text can also use `This is a reply: {text}`. A named short or unhappy pasted review enters these outcomes too. With no waiting clients, ask for a name with the placeholder below; the trainer's typed name identifies the reply without inventing a start date. A plain next text after the chosen follow-up continues that client's conversation; a forwarded next reply asks whose reply it is again.
+- **M4 missing copy:** `[COPY NEEDED: forwarded reply with no waiting clients; ask for the client name]`, `[COPY NEEDED: list]` (list-opening button, max 20 characters), `[COPY NEEDED: more]` (next page), `[COPY NEEDED: voice note longer than two minutes]`, `[COPY NEEDED: voice transcript exceeds 2,000 characters]`. AGENTS.md's two-minute / 2,000-character limits take precedence over the earlier "any length" wording; the rejection words are not in DESIGN, so use these placeholders.
+- **Grounding correction:** the free-demo sentence in the example below is illustrative, never an offer to add. PRODUCT.md prohibits invented claims. Owner correction, 7 Oct: use only the client's grounded recommendation; do not append a contact link.
+
 ### 4.5 Three outcomes
 
 **Happy client**
@@ -156,8 +163,8 @@ The agent has no visual design of its own. It looks like WhatsApp because it is 
 - **Draft (one message, ask and recommendation together):**
   > Priya, so happy it's working for you! I put your words together below. Would you be okay forwarding it to your society group?
   >
-  > "I've been doing Zumba with Mayuri for a month now. My knees don't hurt on the stairs anymore and I actually look forward to mornings. Message her for a free demo: wa.me/{trainer number}"
-- **The link is a plain wa.me link to the trainer's own number.** No tracking links in v1.
+  > "I've been doing Zumba with Mayuri for a month now. My knees don't hurt on the stairs anymore and I actually look forward to mornings. "
+- **Owner correction, 7 Oct:** no contact link is appended to the draft. The Send to client button still opens WhatsApp with the approved draft; that button link is separate from the recommendation text.
 - Button: [Send to client]
 
 **Reply too short** (e.g. "Good! Loving it 😊")
@@ -207,3 +214,19 @@ The agent has no visual design of its own. It looks like WhatsApp because it is 
 4. **Voice notes are first-class.** Any language, any length. Text is never the "proper" option.
 5. **An unhappy client is never asked to share.** The flow stops until the trainer says otherwise.
 6. **Tone:** comforting, guiding, encouraging, confident. Say what to do next, never what went wrong without a fix.
+
+
+## Owner clarification, 7 Oct — instructor/session context
+
+Every recommendation explicitly identifies the instructor and her sessions. For unnamed reviews, prefix the standalone recommendation with the same line and a blank line. For combined drafts, put the neutral context line `Mayuri's sessions:` inside the quoted testimonial, then a blank line and the client's grounded words. This is attribution only: never add a result, claim, type of class, duration or feeling. Keep the client speaking as I. Mayuri is the instructor specified by the owner's earlier clarification; do not substitute the tester's WhatsApp profile name. The approved combined draft is:
+
+`{client}, so happy it's working for you! I put your words together below. Would you be okay forwarding it to your society group?`
+
+`"Mayuri's sessions:`
+
+`{recommendation}"`
+
+
+## Owner wording correction, 7 Oct — natural first-person attribution
+
+Supersedes the context heading for English first-person reviews about classes/sessions: weave the attribution into the sentence using `I've been going to Mayuri's sessions and {client's first-person words}`. The owner's approved example, with the singular grammar corrected, is `I've been going to Mayuri's sessions and I enjoy the music in the class. I look forward to every session.` Do not add a duration, class type, result or feeling. Keep already-explicit references to Mayuri intact. For a thin reply without an attendance statement or a non-English recommendation, keep the earlier neutral attribution rather than inventing attendance or translating. The combined ask and Send to client button remain unchanged.

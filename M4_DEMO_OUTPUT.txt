@@ -1,0 +1,56 @@
+
+> build-sprint-app@1.0.0 demo:m4
+> M4_SHOW_EXCHANGE=1 vitest run tests/m4.test.ts --testNamePattern="transcribes a forwarded Kannada" --reporter=verbose
+
+
+ RUN  v5.0.3 /Users/divyaabhilash/build-sprint-app
+
+ ↓ tests/m4.test.ts > asks whose forwarded reply this is before making an AI call, then drafts a grounded happy ask
+ ↓ tests/m4.test.ts > allows one short follow-up, then drafts from a still-short second reply
+ ↓ tests/m4.test.ts > unhappy feedback stops the public-sharing flow
+ ↓ tests/m4.test.ts > lists multiple waiting clients without revealing another trainer's clients
+ ↓ tests/m4.test.ts > ignores another trainer's and already-used buttons without another AI call
+ ↓ tests/m4.test.ts > asks the trainer to resolve ambiguous sentiment without a second AI call
+ ↓ tests/m4.test.ts > nurtures a named short pasted review, preserves commands, and does not repeat a tapped follow-up
+ ↓ tests/m4.test.ts > resolves a forwarded reply with no waiting clients after the trainer supplies a name
+ ↓ tests/m4.test.ts > paginated selectors do not lose clients after the first nine
+ ↓ tests/m4.test.ts > keeps forwarded follow-up client selection explicit and the follow-up limit on the client
+stdout | tests/m4.test.ts > transcribes a forwarded Kannada voice note in its language and retains no voice file or media reference
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["audio"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stderr | tests/m4.test.ts > transcribes a forwarded Kannada voice note in its language and retains no voice file or media reference
+[monitor] "main" loop is not running — restarting
+
+stderr | tests/m4.test.ts > transcribes a forwarded Kannada voice note in its language and retains no voice file or media reference
+[monitor] "main" loop is not running — restarting
+
+stdout | tests/m4.test.ts > transcribes a forwarded Kannada voice note in its language and retains no voice file or media reference
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > transcribes a forwarded Kannada voice note in its language and retains no voice file or media reference
+MOCK Kannada voice exchange; synthetic audio; no real provider calls
+Agent: Is this M4 Test Ria's reply?
+Agent: M4 Test Ria's happy! Here's her recommendation in her own words, with the ask. I only cleaned up grammar.
+Agent: M4 Test Ria, so happy it's working for you! I put your words together below. Would you be okay forwarding it to your society group?
+
+"ನನಗೆ ತರಗತಿಯ ಸಂಗೀತ ಇಷ್ಟ. ಪ್ರತಿ ತರಗತಿಗೂ ಕಾತರದಿಂದ ಕಾಯುತ್ತೇನೆ.
+
+wa.me/919000000041"
+
+ ✓ tests/m4.test.ts > transcribes a forwarded Kannada voice note in its language and retains no voice file or media reference 384ms
+ ↓ tests/m4.test.ts > rejects a voice note over two minutes before calling Sarvam or OpenAI
+ ↓ tests/m4.test.ts > splits a two-minute voice note into bounded chunks and joins transcripts in order
+ ↓ tests/m4.test.ts > handles Sarvam refusal with the exact voice error and removes the media reference
+ ↓ tests/m4.test.ts > rejects another trainer's media and arbitrary download hosts without fetching them
+ ↓ tests/m4.test.ts > shares the global AI limit with speech transcription
+ ↓ tests/m4.test.ts > does not let a new named review bypass an unhappy client's pause
+ ↓ tests/m4.test.ts > rejects oversized forwarded text and invented AI passages without any sharing draft
+ ↓ tests/m4.test.ts > does not make speech-provider calls when SARVAM_API_KEY is missing
+ ↓ tests/m4.test.ts > routes a named unhappy pasted review privately and remembers its pause even before the client is added
+ ↓ tests/m4.test.ts > a repeated short testimonial from the same named client does not restart the one-follow-up allowance
+ ↓ tests/m4.test.ts > greetings and client commands do not accidentally answer the pending client-name question
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 21 skipped (22)
+   Start at  20:56:17
+   Duration  693ms (tests 64%, transform 28%, import 8%)

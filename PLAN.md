@@ -74,6 +74,12 @@ Voice notes through Sarvam, "whose reply is this?", and the three outcomes in DE
 Owner clarification, 6 Oct: when a testimonial is too short, guide the instructor to ask the client to elaborate on changes she notices in herself, so the recommendation reflects more of her experience. Use DESIGN.md 4.5's existing short-reply choices and exact follow-up drafts, one follow-up only; never fill in missing results or feelings. Build this in M4, keeping M2 limited to its current scope.
 Done when: a forwarded Kannada voice note, a short text and an unhappy text each get the right outcome and draft.
 
+Status, 6 Oct: M4 built and deployed to dev; 75 mocked tests, compile and mocked Kannada exchange pass. One real generated-English Sarvam transcription and one grounded real OpenAI draft pass (2 real AI calls). Voice bytes remain in memory only; one short follow-up, client selection and unhappy pauses are enforced. Phone Kannada/selector check and owner confirmation pending; placeholders and choices in M4_NOTES.md. M4 uncommitted; no M5/M6.
+
+Update, 7 Oct: owner confirmed selector/happy draft delivery and reported direct-review/bold-input issues. Named direct reviews now use one combined draft/button, contact link removed and bold input normalized; 79 mocked tests/compile pass, dev deployed, phone recheck pending.
+
+Update, 7 Oct: owner confirmed M4 and final session wording; 82 mocked tests pass. M4 approved for commit, push and production deployment.
+
 ## M5. Follow-ups (1:30 to 2:30pm)
 The reminder (once), "Did she post it?", said-no thank-you, "Priya is happy now", and the "I didn't catch that" fallback.
 Done when: with dev timers in minutes, each follow-up fires once and never twice.
