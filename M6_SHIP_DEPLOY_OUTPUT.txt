@@ -1,0 +1,31 @@
+
+> build-sprint-app@1.0.0 deploy
+> npx @convex-dev/static-hosting deploy --no-spa
+
+
+🚀 Convex + Static Files Deployment
+═══════════════════════════════════════════════════════════
+
+Step 1: Getting deployment URLs...
+   Component not yet deployed. Will fetch URLs after deploying backend.
+
+Step 2: Building frontend...
+   Deploying Convex backend first to get URLs...
+
+▌ Deploying code to deployment:
+▌ [Production] divyasadandn:build-sprint-app:production (prod) (dashboard: https://dashboard.convex.dev/t/divyasadandn/build-sprint-app/agreeable-walrus-235)
+▌ └─ https://agreeable-walrus-235.convex.cloud
+You're currently developing against your dev deployment
+
+  giant-platypus-592 (set in CONVEX_DEPLOYMENT)
+
+Your prod deployment agreeable-walrus-235 serves traffic at:
+
+  VITE_CONVEX_URL=https://agreeable-walrus-235.convex.cloud
+
+Make sure that your published client is configured with this URL (for instructions see https://docs.convex.dev/hosting)
+
+Do you want to push your code to your prod deployment agreeable-walrus-235 now?
+✖ Cannot prompt for input in non-interactive terminals. (Do you want to push your code to your prod deployment agreeable-walrus-235 now?)
+
+❌ Convex deployment failed

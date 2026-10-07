@@ -69,4 +69,4 @@ One line per milestone, added after I confirm it works: date, milestone, what no
 
 7 Oct: Owner confirms the smaller/spaced phone carousel and Reduce Motion Play fix work and requests the next build; M6 UI approval recorded. PLAN ends at M6; launch readiness and remaining talking-video/mobile-data/copy/template checks still tracked separately.
 
-7 Oct: M6 release approved by owner; approved M5/M6 changes pass113 mocked tests and compile, production public assistant number configured with keys kept in Convex; committing/pushing before production deployment and live page verification.
+7 Oct: M6 approved and shipped with earlier confirmed M5 follow-ups: code committed/pushed as d3c7955, npm run deploy publishes https://agreeable-walrus-235.convex.site;113 mocked tests/compile and3 production browser checks pass,390px screenshot inspected. Public number set in Convex, webhook unchanged; talking video/templates/missing copy/mobile-data handoff remain listed in M6_SHIP_NOTES.md.

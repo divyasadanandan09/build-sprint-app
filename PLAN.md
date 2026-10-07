@@ -110,6 +110,8 @@ Owner confirmation, 7 Oct: smaller/spaced phone carousel and Reduce Motion Play 
 
 M6 release authorization, 7 Oct: owner confirmed mobile carousel and instructed Go ahead with M6. Approved M5/M6 changes pass113 mocked tests/compile; production WHATSAPP_AGENT_NUMBER configured. Shipping existing approved scope, no new milestone; actual release evidence in M6_SHIP_NOTES.md.
 
+M6 shipped, 7 Oct: owner-approved code d3c7955 pushed and production deployed to https://agreeable-walrus-235.convex.site.113 mocked tests, compile and3 production browser checks pass. No new feature milestone; next is the owner mobile-data/chat-handoff check and remaining launch items in M6_SHIP_NOTES.md.
+
 ## Going live with Mayuri (after today's build)
 Update, 7 Oct: Meta now reports CONNECTED and owner screenshot confirms real replies. M5 answer-correction and M6 carousel/group-preview refinements are built and dev deployed; see M5_STATUS_CHANGE_NOTES.md and M6_REFINEMENT_NOTES.md. Mobile-data page failure remains open. No milestone approval, commit, push or production deployment inferred from these bug reports.
 

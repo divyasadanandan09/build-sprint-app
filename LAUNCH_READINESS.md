@@ -1,5 +1,7 @@
 # Launch readiness — 7 Oct
 
+Latest: approved M5/M6 code is committed/pushed as d3c7955 and production is deployed at https://agreeable-walrus-235.convex.site.113 mocked tests/compile and3 production browser checks pass; production public number is configured. The checks below are the earlier pre-release snapshot, superseded by M6_SHIP_NOTES.md.
+
 Owner confirms smaller/spaced phone carousel and Play override work. This approves the UI fix; no additional feature milestone exists after M6.
 
 Read-only current checks:

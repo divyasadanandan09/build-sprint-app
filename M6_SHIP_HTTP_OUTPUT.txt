@@ -1,0 +1,5 @@
+{"path": "/", "status": 200, "approved_headline_present": true}
+{"path": "/landing-config", "status": 200, "direct_whatsapp_hi_link": true}
+{"path": "/privacy", "status": 200, "matches_unchanged_dev_policy": true}
+{"path": "/whatsapp", "status": 403}
+{"path": "/unknown-page", "status": 404}

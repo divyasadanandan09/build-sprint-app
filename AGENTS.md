@@ -37,8 +37,8 @@ When I report a bug, I'll name the part. Look there first, and tell me if you th
 - We can't see when she taps a "Send to client" button; WhatsApp doesn't report URL button taps. Treat the time a draft is created as the time it was sent.
 
 ## 3. Shipping
-Live link: [TO FILL: prod .convex.site link, after the first deploy]
-Repo: [TO FILL: github.com/you/your-repo], public
+Live link: https://agreeable-walrus-235.convex.site
+Repo: https://github.com/divyasadanandan09/build-sprint-app, public
 Deploy: npm run deploy (runs npx convex deploy). A push never deploys by itself. After I say a milestone works: commit, push, then deploy.
 Keys: WHATSAPP_TOKEN, WHATSAPP_PHONE_NUMBER_ID, WHATSAPP_VERIFY_TOKEN, WHATSAPP_APP_SECRET, OPENAI_API_KEY and SARVAM_API_KEY live in Convex environment variables, set for dev and for prod. Never in code, a VITE_ variable or a committed file. Never ask me to paste them into chat.
 .gitignore covers .env.local.

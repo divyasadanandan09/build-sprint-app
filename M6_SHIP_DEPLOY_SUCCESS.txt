@@ -1,0 +1,140 @@
+> build-sprint-app@1.0.0 deploy
+> npx @convex-dev/static-hosting deploy --no-spa
+
+
+🚀 Convex + Static Files Deployment
+═══════════════════════════════════════════════════════════
+
+Step 1: Getting deployment URLs...
+   Component not yet deployed. Will fetch URLs after deploying backend.
+
+Step 2: Building frontend...
+   Deploying Convex backend first to get URLs...
+
+▌ Deploying code to deployment:
+▌  Production  divyasadandn:build-sprint-app:production (prod) (dashboard)
+▌ └─ https://agreeable-walrus-235.convex.cloud
+You're currently developing against your dev deployment
+
+  giant-platypus-592 (set in CONVEX_DEPLOYMENT)
+
+Your prod deployment agreeable-walrus-235 serves traffic at:
+
+  VITE_CONVEX_URL=https://agreeable-walrus-235.convex.cloud
+
+Make sure that your published client is configured with this URL (for instructions see https://docs.convex.dev/hosting)
+
+? Do you want to push your code to your prod deployment agreeable-walrus-235
+now? (Y/n)? Do you want to push your code to your prod deployment agreeable-walrus-235
+now? (Y/n) y✔ Do you want to push your code to your prod deployment agreeable-walrus-235
+now? Yes
+Convex AI files are not installed. Run npx convex ai-files install to get started or npx convex ai-files disable to hide this message.
+Warning: truncated output (original token count: 2001)
+Total output lines: 127
+
+✔ No indexes are deleted by this push
+Uploading functions to Convex...
+Generating TypeScript bindings...
+Running TypeScript...
+Pushing code to your Convex deployment...
+Schema validation complete.
+Finalizing push...
+✔ Added table indexes:
+  [+] followupEvents.by_flow_state   flowId, state, _creationTime
+  [+] followupEvents.by_state_due   state, dueAt, _creationTime
+  [+] followups.by_trainer_name   trainerId, name, _creationTime
+  [+] monthlyPosts.by_trainer_month   trainerId, month, _creationTime
+✔ Installed component staticHosting.
+✔ Deployed Convex functions to https://agreeable-walrus-235.convex.cloud
+
+   ✓ Site URL: https://agreeable-walrus-235.convex.site
+   Build command: npm run build
+   VITE_CONVEX_URL=https://agreeable-walrus-235.convex.cloud
+   STATIC_HOSTING_BASE_PATH=/
+
+
+> build-sprint-app@1.0.0 build
+> vite build
+
+vite v8.3.3 building client environment for production...
+✓ 9 modules transformed.
+rendering chunks (1)...computing gzip size...
+dist/assets/space-grotesk-vietnamese-700-normal-DMty7AZE.woff2   4.20 kB
+dist/assets/space-grotesk-vietnamese-400-normal-B7xT_GF5.woff2   4.29 kB
+dist/assets/space-grotesk-vietnamese-500-normal-BmEvtly_.woff2   4.32 kB
+dist/assets/space-grotesk-vietnamese-700-normal-Duxec5Rn.woff    5.58 kB
+dist/assets/space-grotesk-vietnamese-500-normal-BTqKIpxg.woff    5.71 kB
+dist/assets/space-grotesk-vietnamese-400-normal-BIWiOVfw.woff    5.72 kB
+dist/index.html                                                  8.32 kB │ gzip: 2.67 kB
+dist/assets/space-grotesk-latin-ext-700-normal-BQnZhY3m.woff2   11.99 kB
+dist/assets/space-grotesk-latin-ext-40…201 tokens truncated…-500-normal-jKqJW7bC.woff2          19.59 kB
+dist/assets/caveat-latin-ext-500-normal-wUUXxlbS.woff           25.09 kB
+dist/assets/caveat-cyrillic-ext-500-normal-DcrB4vVx.woff2       25.63 kB
+dist/assets/caveat-cyrillic-ext-500-normal-DqTXtm5N.woff        30.91 kB
+dist/assets/caveat-cyrillic-500-normal-DpMZbbjM.woff2           45.46 kB
+dist/assets/caveat-latin-500-normal-B9SDL8cy.woff2              50.90 kB
+dist/assets/caveat-cyrillic-500-normal-DLSfp5IU.woff            53.43 kB
+dist/assets/caveat-latin-500-normal-Do9veZfZ.woff               62.36 kB
+dist/assets/index-0xHrJjMk.css                                  24.91 kB │ gzip: 5.79 kB
+dist/assets/index-BNQiY9r6.js                                    6.17 kB │ gzip: 2.51 kB
+
+✓ built in 154ms
+   ✓ Build complete
+
+Step 3: Skipping Convex deployment (--skip-convex or already deployed)
+
+Step 4: Deploying static files to Convex storage...
+
+📦 Uploading static files to Convex storage...
+
+🚀 Deploying to production environment
+🔒 Using secure internal functions (requires Convex CLI auth)
+Uploading 33 files with deployment ID: 1c075d17-04ac-4218-b67b-b080965841c8
+Component: staticHosting
+
+  Generating 33 upload URLs...
+  [1/33] /assets/caveat-cyrillic-ext-500-normal-DqTXtm5N.woff (storage)
+  [2/33] /assets/caveat-cyrillic-ext-500-normal-DcrB4vVx.woff2 (storage)
+  [3/33] /assets/caveat-cyrillic-500-normal-DLSfp5IU.woff (storage)
+  [4/33] /assets/caveat-cyrillic-500-normal-DpMZbbjM.woff2 (storage)
+  [5/33] /assets/caveat-latin-500-normal-B9SDL8cy.woff2 (storage)
+  [6/33] /assets/caveat-latin-ext-500-normal-wUUXxlbS.woff (storage)
+  [7/33] /assets/index-0xHrJjMk.css (storage)
+  [8/33] /assets/caveat-latin-500-normal-Do9veZfZ.woff (storage)
+  [9/33] /assets/index-BNQiY9r6.js (storage)
+  [10/33] /assets/caveat-latin-ext-500-normal-jKqJW7bC.woff2 (storage)
+  [11/33] /assets/space-grotesk-latin-400-normal-BnQMeOim.woff (storage)
+  [12/33] /assets/space-grotesk-latin-500-normal-CNSSEhBt.woff (storage)
+  [13/33] /assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2 (storage)
+  [14/33] /assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2 (storage)
+  [15/33] /assets/space-grotesk-latin-700-normal-CwsQ-cCU.woff (storage)
+  [16/33] /assets/space-grotesk-latin-ext-400-normal-DRPE3kg4.woff (storage)
+  [17/33] /assets/space-grotesk-latin-700-normal-RjhwGPKo.woff2 (storage)
+  [18/33] /assets/space-grotesk-latin-ext-400-normal-CfP_5XZW.woff2 (storage)
+  [19/33] /assets/space-grotesk-latin-ext-500-normal-3dgZTiw9.woff (storage)
+  [20/33] /assets/space-grotesk-latin-ext-500-normal-DUe3BAxM.woff2 (storage)
+  [21/33] /assets/space-grotesk-latin-ext-700-normal-HVCqSBdx.woff (storage)
+  [22/33] /assets/space-grotesk-latin-ext-700-normal-BQnZhY3m.woff2 (storage)
+  [23/33] /assets/space-grotesk-vietnamese-400-normal-B7xT_GF5.woff2 (storage)
+  [24/33] /assets/space-grotesk-vietnamese-400-normal-BIWiOVfw.woff (storage)
+  [25/33] /assets/space-grotesk-vietnamese-500-normal-BTqKIpxg.woff (storage)
+  [26/33] /assets/space-grotesk-vietnamese-500-normal-BmEvtly_.woff2 (storage)
+  [27/33] /assets/space-grotesk-vietnamese-700-normal-DMty7AZE.woff2 (storage)
+  [28/33] /assets/space-grotesk-vietnamese-700-normal-Duxec5Rn.woff (storage)
+  [29/33] /index.html (storage/html)
+  [30/33] /media/fictional-voice-note.mp3 (storage)
+  [31/33] /media/fictional-video.mp4 (storage)
+  [32/33] /images/meera-before-after-demo.jpg (storage)
+  [33/33] /images/everyday-voice-note.png (storage)
+  Staging manifest chunk 1/1...
+  Publishing deployment...
+
+
+✨ Upload complete!
+
+Your app is now available at: https://agreeable-walrus-235.convex.site
+
+═══════════════════════════════════════════════════════════
+✨ Deployment complete! (66.8s)
+
+Frontend: https://agreeable-walrus-235.convex.site
