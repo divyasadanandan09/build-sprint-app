@@ -84,11 +84,35 @@ Update, 7 Oct: owner confirmed M4 and final session wording; 82 mocked tests pas
 The reminder (once), "Did she post it?", said-no thank-you, "Priya is happy now", and the "I didn't catch that" fallback.
 Done when: with dev timers in minutes, each follow-up fires once and never twice.
 
+Status, 7 Oct: M5 built and deployed to dev. 105 mocked tests across five files and compile pass; signed-webhook command demo covers draft, timed posting question and deduplicated monthly count. Dev delays are 2/3 minutes; one reminder and one Not yet repeat are enforced. Unhappy unpause requires fresh client words; declines prevent later asks. BLOCKED: approved Meta templates for follow-ups outside the 24-hour window are absent; requests stay pending until the trainer messages again. Three missing-copy placeholders and all choices are in M5_NOTES.md. Phone confirmation pending; M5 uncommitted/unpushed and no M6 work.
+
+Update, 7 Oct: owner phone check exposed parallel posting/no-reply prompts; sharing asks now have only the posting question. Named send/posting buttons and referral celebration updated; 105 mocked tests, compile and dev deploy pass. URL taps remain unobservable; separate confirmation preference is still open. M5 remains uncommitted; no M6.
+
 ## M6. Landing page (2:30 to 3:30pm)
 Landing page per DESIGN.md sections 2, 3 and 5. Its button opens the agent chat with "Hi".
 Done when: I open the live link on my phone, on mobile data, and the button opens the agent chat.
 
+Status, 7 Oct: owner authorized continued building during Meta's review. M6 landing page built and deployed to dev at https://giant-platypus-592.convex.site; 110 mocked backend tests, backend/frontend compile, and two live Chrome browser checks pass. A 390px screenshot and actual outputs are saved. Direct WhatsApp link with Hi verified; owner phone handoff/first reply BLOCKED while Meta's account is disabled. Three copy gaps and missing reference files are in M6_NOTES.md. M5 phone confirmation is also BLOCKED by Meta. M5/M6 remain uncommitted/unpushed; no later milestone work.
+
+Latest M6 update, 7 Oct: owner confirms chat follow-ups work and requests landing refinements. Dev now has separated cards with individual hover lift, attached handwritten labels, approved fictional audio/video playback, reaction/trailing group scene and rewritten headline/steps. 113 mocked tests, backend/frontend compile and 3 live Chrome checks pass; current 390px screenshot and details in M6_CARD_FIX_NOTES.md. Meta is CONNECTED; mobile-data access still needs the reported failure diagnosed. No commit/push/production deploy.
+
+Latest M6 refinement, 7 Oct: arched stack, separate preview aliases, owner-supplied group/trailing copy and Demo labels dev deployed; compile and 3 live browser checks pass. Actual speaking video and matching before/after photographs still needed; see M6_ARCH_NOTES.md. No commit/push/prod deploy.
+
+Latest M6 media update, 7 Oct: generated before/after demo replaces placeholder; headline/pediatrician question/group reply dev deployed. Talking-avatar video still requires a video-generation tool or supplied clip; see M6_MEDIA_NOTES.md.
+
+Latest M6 phone fix, 7 Oct: native swipe row/dots replace phone 3D stack, compact group scene measured482px versus790px; compile and3 live browser checks pass. Await owner iPhone Chrome recheck; evidence/choices in M6_PHONE_NOTES.md.
+
+Latest M6 shared-design update, 7 Oct: owner requested matching phone/desktop second fold and arched phone motion; dev deployed, compile/3 live browser checks pass. Phone tap replaces desktop hover. See M6_SHARED_NOTES.md; iPhone confirmation pending.
+
+Latest M6 spacing/motion fix, 7 Oct: owner confirmed Reduce Motion enabled; Play override and truthful paused icon added, phone cards reduced/spaced. Compile/3 live browser checks pass, dev deployed. See M6_SPACING_NOTES.md; phone confirmation pending.
+
+Owner confirmation, 7 Oct: smaller/spaced phone carousel and Reduce Motion Play fix work. M6 UI refinements approved; no additional feature milestone is defined after M6. Remaining launch checks and talking-avatar video limitation remain explicit.
+
+M6 release authorization, 7 Oct: owner confirmed mobile carousel and instructed Go ahead with M6. Approved M5/M6 changes pass113 mocked tests/compile; production WHATSAPP_AGENT_NUMBER configured. Shipping existing approved scope, no new milestone; actual release evidence in M6_SHIP_NOTES.md.
+
 ## Going live with Mayuri (after today's build)
+Update, 7 Oct: Meta now reports CONNECTED and owner screenshot confirms real replies. M5 answer-correction and M6 carousel/group-preview refinements are built and dev deployed; see M5_STATUS_CHANGE_NOTES.md and M6_REFINEMENT_NOTES.md. Mobile-data page failure remains open. No milestone approval, commit, push or production deployment inferred from these bug reports.
+
 - [ ] Nudge template approved by Meta. Prod sends it at 9am IST.
 - [ ] Agent moved from the test number to the real SIM number. Landing page link updated.
 - [ ] Mayuri opens the link on her phone, on mobile data, and gets her first drafts from her own review.

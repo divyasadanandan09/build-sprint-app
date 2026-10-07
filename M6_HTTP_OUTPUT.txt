@@ -1,0 +1,5 @@
+/ 200
+/privacy 200
+/landing-config 200
+/not-a-page 404
+Invalid-signature webhook 401

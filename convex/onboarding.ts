@@ -26,7 +26,8 @@ export const process = internalAction({
     let failure: string | null = null;
     try {
       const send = (part: string, body: string) => deliver(ctx, message.trainerId, message.inboundId, part, textPayload(message.phone, body));
-      const replyResult = await ctx.runAction(internal.m4.handle, { inboundId: message.inboundId });
+      const followupResult = await ctx.runAction(internal.m5.handle, { inboundId: message.inboundId });
+      const replyResult = followupResult.handled ? followupResult : await ctx.runAction(internal.m4.handle, { inboundId: message.inboundId });
       if (replyResult.handled) failure = replyResult.failure;
       else if (message.type === "reaction") {
         // A reaction acknowledges an existing message; it is not a new review.
@@ -50,10 +51,12 @@ export const process = internalAction({
         if (result.read === "short" || result.read === "unhappy") failure = (await ctx.runAction(internal.m4.handle, { inboundId: message.inboundId, reviewRead: result.read })).failure;
         else if (result.read !== "happy" || !result.recommendation || !result.ask) failure = await send("error", result.read === "busy" ? copy.busy : result.read === "off_topic" ? copy.fallback : copy.reviewError);
         else {
+          const createdAt = Date.now();
           const draftId = await ctx.runMutation(internal.m2Store.saveDraft, { inboundId: message.inboundId, recommendation: result.recommendation, ask: result.ask, clientName: result.clientName });
           if (result.clientName) {
             const combined = combinedReview(result.clientName, result.recommendation);
-            failure = combined ? await deliver(ctx, message.trainerId, message.inboundId, "send-button", buttonPayload(message.phone, combined, combined)) : await send("error", copy.reviewError);
+            failure = combined ? await deliver(ctx, message.trainerId, message.inboundId, "send-button", buttonPayload(message.phone, combined, combined, copy.sendTo(result.clientName))) : await send("error", copy.reviewError);
+            if (combined && !failure) await ctx.runMutation(internal.m5Store.start, { trainerId: message.trainerId, name: result.clientName, source: draftId, phase: "asked", createdAt });
           } else {
             const labelled = labelledReview(result.recommendation);
             failure = labelled ? await deliver(ctx, message.trainerId, message.inboundId, "send-button", buttonPayload(message.phone, labelled, labelled, copy.sendReview)) : await send("error", copy.reviewError);

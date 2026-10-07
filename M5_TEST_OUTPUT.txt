@@ -1,0 +1,615 @@
+
+> build-sprint-app@1.0.0 test:m5
+> vitest run --reporter=verbose
+
+
+ RUN  v5.0.3 /Users/divyaabhilash/build-sprint-app
+
+stdout | tests/m4.test.ts > asks whose forwarded reply this is before making an AI call, then drafts a grounded happy ask
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stderr | tests/m4.test.ts > asks whose forwarded reply this is before making an AI call, then drafts a grounded happy ask
+[monitor] "main" loop is not running — restarting
+
+stderr | tests/m4.test.ts > asks whose forwarded reply this is before making an AI call, then drafts a grounded happy ask
+[monitor] "main" loop is not running — restarting
+
+stdout | tests/m4.test.ts > asks whose forwarded reply this is before making an AI call, then drafts a grounded happy ask
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > allows one short follow-up, then drafts from a still-short second reply
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > allows one short follow-up, then drafts from a still-short second reply
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > allows one short follow-up, then drafts from a still-short second reply
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > allows one short follow-up, then drafts from a still-short second reply
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > unhappy feedback stops the public-sharing flow
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m4.test.ts > asks whose forwarded reply this is before making an AI call, then drafts a grounded happy ask 432ms
+ ✓ tests/m4.test.ts > allows one short follow-up, then drafts from a still-short second reply 81ms
+stdout | tests/m4.test.ts > unhappy feedback stops the public-sharing flow
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > lists multiple waiting clients without revealing another trainer's clients
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > lists multiple waiting clients without revealing another trainer's clients
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > ignores another trainer's and already-used buttons without another AI call
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > ignores another trainer's and already-used buttons without another AI call
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > ignores another trainer's and already-used buttons without another AI call
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > ignores another trainer's and already-used buttons without another AI call
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m4.test.ts > unhappy feedback stops the public-sharing flow 36ms
+ ✓ tests/m4.test.ts > lists multiple waiting clients without revealing another trainer's clients 36ms
+stdout | tests/m4.test.ts > asks the trainer to resolve ambiguous sentiment without a second AI call
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > asks the trainer to resolve ambiguous sentiment without a second AI call
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > asks the trainer to resolve ambiguous sentiment without a second AI call
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > nurtures a named short pasted review, preserves commands, and does not repeat a tapped follow-up
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > nurtures a named short pasted review, preserves commands, and does not repeat a tapped follow-up
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > nurtures a named short pasted review, preserves commands, and does not repeat a tapped follow-up
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > nurtures a named short pasted review, preserves commands, and does not repeat a tapped follow-up
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m4.test.ts > ignores another trainer's and already-used buttons without another AI call 62ms
+ ✓ tests/m4.test.ts > asks the trainer to resolve ambiguous sentiment without a second AI call 47ms
+stdout | tests/m4.test.ts > nurtures a named short pasted review, preserves commands, and does not repeat a tapped follow-up
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > nurtures a named short pasted review, preserves commands, and does not repeat a tapped follow-up
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > resolves a forwarded reply with no waiting clients after the trainer supplies a name
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > resolves a forwarded reply with no waiting clients after the trainer supplies a name
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > paginated selectors do not lose clients after the first nine
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > paginated selectors do not lose clients after the first nine
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > paginated selectors do not lose clients after the first nine
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m4.test.ts > nurtures a named short pasted review, preserves commands, and does not repeat a tapped follow-up 115ms
+ ✓ tests/m4.test.ts > resolves a forwarded reply with no waiting clients after the trainer supplies a name 32ms
+stdout | tests/m4.test.ts > keeps forwarded follow-up client selection explicit and the follow-up limit on the client
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > keeps forwarded follow-up client selection explicit and the follow-up limit on the client
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > keeps forwarded follow-up client selection explicit and the follow-up limit on the client
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > keeps forwarded follow-up client selection explicit and the follow-up limit on the client
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > keeps forwarded follow-up client selection explicit and the follow-up limit on the client
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > transcribes a forwarded Kannada voice note in its language and retains no voice file or media reference
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["audio"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > transcribes a forwarded Kannada voice note in its language and retains no voice file or media reference
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m4.test.ts > paginated selectors do not lose clients after the first nine 52ms
+ ✓ tests/m4.test.ts > keeps forwarded follow-up client selection explicit and the follow-up limit on the client 81ms
+stdout | tests/m4.test.ts > rejects a voice note over two minutes before calling Sarvam or OpenAI
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["audio"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > rejects a voice note over two minutes before calling Sarvam or OpenAI
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > splits a two-minute voice note into bounded chunks and joins transcripts in order
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["audio"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > splits a two-minute voice note into bounded chunks and joins transcripts in order
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > handles Sarvam refusal with the exact voice error and removes the media reference
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["audio"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > handles Sarvam refusal with the exact voice error and removes the media reference
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m4.test.ts > transcribes a forwarded Kannada voice note in its language and retains no voice file or media reference 37ms
+ ✓ tests/m4.test.ts > rejects a voice note over two minutes before calling Sarvam or OpenAI 32ms
+ ✓ tests/m4.test.ts > splits a two-minute voice note into bounded chunks and joins transcripts in order 38ms
+stdout | tests/m4.test.ts > rejects another trainer's media and arbitrary download hosts without fetching them
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["audio"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > does not let a new named review bypass an unhappy client's pause
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > does not let a new named review bypass an unhappy client's pause
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > does not let a new named review bypass an unhappy client's pause
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > rejects oversized forwarded text and invented AI passages without any sharing draft
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > rejects oversized forwarded text and invented AI passages without any sharing draft
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m4.test.ts > handles Sarvam refusal with the exact voice error and removes the media reference 32ms
+ ✓ tests/m4.test.ts > rejects another trainer's media and arbitrary download hosts without fetching them 16ms
+ ✓ tests/m4.test.ts > shares the global AI limit with speech transcription 22ms
+ ✓ tests/m4.test.ts > does not let a new named review bypass an unhappy client's pause 44ms
+stdout | tests/m4.test.ts > rejects oversized forwarded text and invented AI passages without any sharing draft
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > rejects oversized forwarded text and invented AI passages without any sharing draft
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > does not make speech-provider calls when SARVAM_API_KEY is missing
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["audio"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > does not make speech-provider calls when SARVAM_API_KEY is missing
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > routes a named unhappy pasted review privately and remembers its pause even before the client is added
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > routes a named unhappy pasted review privately and remembers its pause even before the client is added
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > a repeated short testimonial from the same named client does not restart the one-follow-up allowance
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > a repeated short testimonial from the same named client does not restart the one-follow-up allowance
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > a repeated short testimonial from the same named client does not restart the one-follow-up allowance
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m4.test.ts > rejects oversized forwarded text and invented AI passages without any sharing draft 56ms
+ ✓ tests/m4.test.ts > does not make speech-provider calls when SARVAM_API_KEY is missing 28ms
+ ✓ tests/m4.test.ts > routes a named unhappy pasted review privately and remembers its pause even before the client is added 30ms
+stdout | tests/m4.test.ts > greetings and client commands do not accidentally answer the pending client-name question
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > greetings and client commands do not accidentally answer the pending client-name question
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > greetings and client commands do not accidentally answer the pending client-name question
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > an explicit new review gets a combined draft instead of becoming the previous client's follow-up
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > an explicit new review gets a combined draft instead of becoming the previous client's follow-up
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > an explicit new review gets a combined draft instead of becoming the previous client's follow-up
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > a direct named review gets one combined draft with a button and no added contact link
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m4.test.ts > a repeated short testimonial from the same named client does not restart the one-follow-up allowance 54ms
+ ✓ tests/m4.test.ts > greetings and client commands do not accidentally answer the pending client-name question 44ms
+ ✓ tests/m4.test.ts > an explicit new review gets a combined draft instead of becoming the previous client's follow-up 43ms
+stdout | tests/m4.test.ts > bold review labels, triggers and passages reach AI as review words, not formatting
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > formatted forwarded replies preserve their words and still use client selection
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > formatted forwarded replies preserve their words and still use client selection
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > a formatted reviewer label identifies the client even when the AI omits her name
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > makes a generic review explicitly about Mayuri and her sessions without adding experiences
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > also identifies Mayuri's sessions in a review without a client name
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m4.test.ts > uses the owner's natural first-person wording for the music test review
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m4.test.ts > a direct named review gets one combined draft with a button and no added contact link 16ms
+ ✓ tests/m4.test.ts > bold review labels, triggers and passages reach AI as review words, not formatting 14ms
+ ✓ tests/m4.test.ts > formatted forwarded replies preserve their words and still use client selection 29ms
+ ✓ tests/m4.test.ts > a formatted reviewer label identifies the client even when the AI omits her name 14ms
+ ✓ tests/m4.test.ts > makes a generic review explicitly about Mayuri and her sessions without adding experiences 14ms
+ ✓ tests/m4.test.ts > also identifies Mayuri's sessions in a review without a client name 14ms
+ ✓ tests/m4.test.ts > uses the owner's natural first-person wording for the music test review 14ms
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > keeps long review drafts within the button-message body limit using complete sentences
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stderr | tests/m2.test.ts > M2 signed webhook and onboarding > keeps long review drafts within the button-message body limit using complete sentences
+[monitor] "main" loop is not running — restarting
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > saves a client from a conversational joined-on message, including copied Unicode spacing
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects an invalid date in a conversational client message
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > accepts spaced reviewer labels and direct-address reviews despite harmless AI rewriting differences
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > recognizes a conversational review trigger and a review following the trigger
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > keeps long review drafts within the button-message body limit using complete sentences 187ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > saves a client from a conversational joined-on message, including copied Unicode spacing 48ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects an invalid date in a conversational client message 22ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > accepts spaced reviewer labels and direct-address reviews despite harmless AI rewriting differences 23ms
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > recognizes a conversational review trigger and a review following the trigger
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > accepts a reviewer name with spaces around the colon
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > keeps the client as I, addresses Mayuri in third person, and preserves formatting in the send button
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > adds paragraph spacing to long reviews and discards invented highlights
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > discards invented rewritten results without rejecting a valid source review
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > ignores emoji reactions without replying or calling AI
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["reaction"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > recognizes a conversational review trigger and a review following the trigger 39ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > accepts a reviewer name with spaces around the colon 19ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > keeps the client as I, addresses Mayuri in third person, and preserves formatting in the send button 19ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > adds paragraph spacing to long reviews and discards invented highlights 21ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > discards invented rewritten results without rejecting a valid source review 20ms
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > ignores emoji reactions without replying or calling AI 16ms
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > preserves emojis in a detailed review and its combined draft
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects unsigned and altered bodies before saving anything
+whatsapp_post {"signature_valid":false,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":"invalid_signature","queued_messages":0}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects unsigned and altered bodies before saving anything
+whatsapp_post {"signature_valid":false,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":"invalid_signature","queued_messages":0}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > fails closed when the app secret is missing
+whatsapp_post {"signature_valid":null,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":"missing_app_secret","queued_messages":0}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects malformed signed JSON
+whatsapp_post {"signature_valid":true,"phone_number_id":[],"contains_messages":false,"contains_statuses":false,"message_type":[],"ignored_entry_reasons":["wrong_webhook_object"],"ignored_reason":"invalid_json","queued_messages":0}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > ignores delivery statuses and messages for a different agent number
+whatsapp_post {"signature_valid":true,"phone_number_id":[],"contains_messages":false,"contains_statuses":false,"message_type":[],"ignored_entry_reasons":["empty_entries"],"ignored_reason":"empty_entries","queued_messages":0}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > ignores delivery statuses and messages for a different agent number
+whatsapp_post {"signature_valid":true,"phone_number_id":["999"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":["phone_number_id_mismatch"],"ignored_reason":"phone_number_id_mismatch","queued_messages":0}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > welcomes the trainer without making an AI call
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > sends a combined named-review draft without a next-client question; saves a client the instructor initiates
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > sends a combined named-review draft without a next-client question; saves a client the instructor initiates
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses the exact DESIGN combined ask and button for a supplied client name
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > uses DESIGN fallback for say thanks and emoji-only text without treating them as reviews 108ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > preserves emojis in a detailed review and its combined draft 18ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > logs exactly one safe line for an ignored phone-number ID mismatch 4ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > logs invalid signatures, malformed JSON and missing configuration once each 2ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > logs status-only payloads without logging recipient numbers or status details 2ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > logs accepted and duplicate messages separately and sanitizes unknown message types 16ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > verifies Meta's challenge and refuses a wrong token 1ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects unsigned and altered bodies before saving anything 3ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > fails closed when the app secret is missing 1ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects malformed signed JSON 1ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > ignores delivery statuses and messages for a different agent number 2ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > welcomes the trainer without making an AI call 15ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > sends a combined named-review draft without a next-client question; saves a client the instructor initiates 34ms
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > deduplicates simultaneous webhook retries without prompting for a client
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > deduplicates simultaneous webhook retries without prompting for a client
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":"duplicate_message_ids","queued_messages":0}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > records Meta 131031 as blocked without pretending the drafts were sent or scheduling the question
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > records Meta 131031 as blocked without pretending the drafts were sent or scheduling the question
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":"duplicate_message_ids","queued_messages":0}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > does not resend a partial sequence or ask for the next client after its ask fails
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > does not resend a partial sequence or ask for the next client after its ask fails
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":"duplicate_message_ids","queued_messages":0}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > will not save a next client against another trainer's pending question
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > keeps trainer records and clients separate
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > keeps trainer records and clients separate
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > uses the exact DESIGN combined ask and button for a supplied client name 17ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > deduplicates simultaneous webhook retries without prompting for a client 18ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > records Meta 131031 as blocked without pretending the drafts were sent or scheduling the question 18ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > does not resend a partial sequence or ask for the next client after its ask fails 19ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > does not send legacy scheduled next-client questions 2ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > will not save a next client against another trainer's pending question 16ms
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > keeps trainer records and clients separate
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > keeps trainer records and clients separate
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects more than 2000 characters without calling AI
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects an audio envelope without a media ID before contacting Sarvam
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["audio"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > uses a copy placeholder on AI failure
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stderr | tests/m2.test.ts > M2 signed webhook and onboarding > uses a copy placeholder on AI failure
+draft_failure {
+  category: 'provider_or_runtime_error',
+  errorType: 'Error',
+  status: null
+}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > never sends a sharing ask for an unhappy or short input
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > never sends a sharing ask for an unhappy or short input
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > keeps trainer records and clients separate 56ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects more than 2000 characters without calling AI 15ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects an audio envelope without a media ID before contacting Sarvam 16ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > uses a copy placeholder on AI failure 16ms
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects invented recommendation words and names
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects bad instructor-initiated client dates without creating a pending question
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m2.test.ts > M2 signed webhook and onboarding > rejects bad instructor-initiated client dates without creating a pending question
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > never sends a sharing ask for an unhappy or short input 32ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects invented recommendation words and names 15ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > limits AI calls to 100 an hour globally 25ms
+ ✓ tests/m2.test.ts > M2 signed webhook and onboarding > rejects bad instructor-initiated client dates without creating a pending question 31ms
+ ✓ tests/m2.test.ts > M2 provider and dates > records missing credentials and network failures without logging keys 1ms
+ ✓ tests/m2.test.ts > M2 provider and dates > rejects a malformed successful send response 1ms
+ ✓ tests/m2.test.ts > M2 provider and dates > parses dates using IST, rejects future dates, and handles a missing year 1ms
+stderr | tests/m3.test.ts > sends an eligible dev client one nudge and a check-in-only button; repeated ticks never duplicate it
+[monitor] "main" loop is not running — restarting
+
+ ✓ tests/m3.test.ts > sends an eligible dev client one nudge and a check-in-only button; repeated ticks never duplicate it 110ms
+ ✓ tests/m3.test.ts > never nudges future clients, stays silent when no one is due, and catches up overdue clients 42ms
+ ✓ tests/m3.test.ts > requires 9am IST and an enabled approved template in production 22ms
+ ✓ tests/m3.test.ts > records blocked sends without marking clients checked in or sending duplicate retries 20ms
+ ✓ tests/m3.test.ts > lists only the requesting trainer's clients in the current IST week 3ms
+ ✓ tests/m3.test.ts > recognizes Add client and Who's due commands without AI 18ms
+ ✓ tests/m3.test.ts > does not trust an early due date when the minimum wait period has not passed 1ms
+ ✓ tests/m3.test.ts > continues beyond 50 clients and does not let blocked clients hide later ones 623ms
+ ✓ tests/m3.test.ts > lists clients in batches of at most five lines and uses the copy placeholder for an empty week 6ms
+ ✓ tests/m3.test.ts > does not use the today-only production template for overdue clients 1ms
+ ✓ tests/m3.test.ts > records a network failure without marking the combined nudge sent or retrying it 14ms
+stdout | tests/m5.test.ts > starts both M5 timers from a named review through the signed webhook
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > starts both M5 timers from a named review through the signed webhook
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > sends one reminder after three dev minutes, gives a check-in-only draft, and never chases again
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > sends one reminder after three dev minutes, gives a check-in-only draft, and never chases again
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > Leave it stops all pending chases without inventing an acknowledgement
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m5.test.ts > starts both M5 timers from a named review through the signed webhook 228ms
+ ✓ tests/m5.test.ts > sends one reminder after three dev minutes, gives a check-in-only draft, and never chases again 56ms
+stdout | tests/m5.test.ts > Not yet asks exactly once more after three minutes and then stops
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > Not yet asks exactly once more after three minutes and then stops
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > She said no sends one combined thank-you/button and prevents later sharing asks
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > She said no sends one combined thank-you/button and prevents later sharing asks
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m5.test.ts > Leave it stops all pending chases without inventing an acknowledgement 33ms
+ ✓ tests/m5.test.ts > Not yet asks exactly once more after three minutes and then stops 61ms
+stdout | tests/m5.test.ts > She said no sends one combined thank-you/button and prevents later sharing asks
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > uses real deduplicated trainer-specific counts and the IST month boundary
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > uses real deduplicated trainer-specific counts and the IST month boundary
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > uses real deduplicated trainer-specific counts and the IST month boundary
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > uses real deduplicated trainer-specific counts and the IST month boundary
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m5.test.ts > She said no sends one combined thank-you/button and prevents later sharing asks 59ms
+stdout | tests/m5.test.ts > uses real deduplicated trainer-specific counts and the IST month boundary
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > ignores forged, cross-trainer, stale and repeated buttons
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > ignores forged, cross-trainer, stale and repeated buttons
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > ignores forged, cross-trainer, stale and repeated buttons
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > ignores forged, cross-trainer, stale and repeated buttons
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > uses days in prod, waits safely outside the 24-hour window, then sends once after a fresh Hi
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m5.test.ts > uses real deduplicated trainer-specific counts and the IST month boundary 118ms
+ ✓ tests/m5.test.ts > ignores forged, cross-trainer, stale and repeated buttons 68ms
+stdout | tests/m5.test.ts > unpauses an unhappy named client only on the trainer command and requires fresh client words
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > unpauses an unhappy named client only on the trainer command and requires fresh client words
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > unpauses an unhappy named client only on the trainer command and requires fresh client words
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > unpauses an unhappy named client only on the trainer command and requires fresh client words
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m5.test.ts > uses days in prod, waits safely outside the 24-hour window, then sends once after a fresh Hi 42ms
+ ✓ tests/m5.test.ts > records Meta rejection without claiming delivery or retrying 15ms
+ ✓ tests/m5.test.ts > a newly identified reply cancels a queued reminder before it is sent 16ms
+ ✓ tests/m5.test.ts > unpauses an unhappy named client only on the trainer command and requires fresh client words 57ms
+stdout | tests/m5.test.ts > starts M5 from a successful M3 check-in and keeps the reminder allowance across later asks
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > starts M5 from a successful M3 check-in and keeps the reminder allowance across later asks
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > handles the exact off-topic fallback without a real provider call
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > handles the exact off-topic fallback without a real provider call
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m5.test.ts > starts M5 from a successful M3 check-in and keeps the reminder allowance across later asks 54ms
+ ✓ tests/m5.test.ts > handles the exact off-topic fallback without a real provider call 27ms
+stdout | tests/m5.test.ts > a tracked unhappy client unpauses, stays selectable and starts posting timers only after a fresh happy reply
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > a tracked unhappy client unpauses, stays selectable and starts posting timers only after a fresh happy reply
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > a tracked unhappy client unpauses, stays selectable and starts posting timers only after a fresh happy reply
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > a short follow-up starts only the no-reply timer and a further reply replaces it with posting timers
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > a short follow-up starts only the no-reply timer and a further reply replaces it with posting timers
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > a short follow-up starts only the no-reply timer and a further reply replaces it with posting timers
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > does not create timers for a draft rejected by Meta
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > does not create timers for a draft rejected by Meta
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m5.test.ts > queues all due events in bounded batches, including more than fifty, once only 621ms
+ ✓ tests/m5.test.ts > a tracked unhappy client unpauses, stays selectable and starts posting timers only after a fresh happy reply 41ms
+ ✓ tests/m5.test.ts > a short follow-up starts only the no-reply timer and a further reply replaces it with posting timers 44ms
+stdout | tests/m5.test.ts > does not create timers for a draft rejected by Meta
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > a forwarded positive reply from a declined client remains private, without an AI call or a new ask
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > a forwarded positive reply from a declined client remains private, without an AI call or a new ask
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > a forwarded positive reply from a declined client remains private, without an AI call or a new ask
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > still enforces the 2000-character limit for feedback from a declined client
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > still enforces the 2000-character limit for feedback from a declined client
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ✓ tests/m5.test.ts > does not create timers for a draft rejected by Meta 41ms
+ ✓ tests/m5.test.ts > a forwarded positive reply from a declined client remains private, without an AI call or a new ask 50ms
+ ✓ tests/m5.test.ts > still enforces the 2000-character limit for feedback from a declined client 37ms
+ ✓ tests/drafting.integration.test.ts > runs the real Convex Agent for one isolated review, with OpenAI mocked 141ms
+
+ Test Files  5 passed (5)
+      Tests  101 passed (101)
+   Start at  07:00:54
+   Duration  6.14s (tests 91%, transform 5%, import 4%)
+
+    Isolate  5 workers spawned · ~90ms startup each (spawn + environment, per file)
+             at least ~359ms faster with isolate: false — reuses workers across files instead of one per file

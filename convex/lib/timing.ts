@@ -19,3 +19,5 @@ export function isNudgeTime(source: "dev" | "daily", now: number): boolean {
 export function displayDate(date: string): string {
   return new Date(date + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 }
+
+export function followupDelay(days: number): number { return days * (timingMode() === "dev" ? 60_000 : 86_400_000); }

@@ -1,0 +1,12 @@
+Use case: photorealistic-natural.
+Asset type: a two-panel landscape before/after DEMO image for a small website testimonial card, not real customer evidence.
+Style anchor:
+Medium: photography for hero and testimonial examples; DESIGN.md explicitly reserves white-fill black line illustrations for How it works only.
+Palette: background #F6F3EE, surface #FFFFFF, ink #1C1B19, secondary #6B6760, accent #C6F432.
+Light: soft daylight from the left, late morning, natural and diffuse.
+Materials: painted residential walls, everyday cotton clothing, stone stairs, matte phone surfaces.
+Mood: neighbourly, unhurried, familiar.
+Never: recognisable real people, branded products, unlabelled invented before/after results, stock fitness poses, glossy pedestals, lens flare, neon-on-black, baked-in words or interface screenshots.
+Input image: the reference is an AI-generated invented avatar. Preserve her exact face, hair, age, skin tone and identity in both panels.
+Primary request: one diptych with the SAME Indian woman from the reference standing facing the camera, relaxed expression, arms naturally down, full body visible in each half. Left half has a moderately fuller waist/hips and right half a modestly leaner body, otherwise identical clothing, stance, camera distance, same neutral residential wall and same daylight. Everyday charcoal-grey cotton t-shirt and simple dark trousers, no towel, phone or bag. Natural realistic proportions and texture; no extreme thinness, no beautification of the 'after', no exaggerated muscle, no numerical weight or measured result, no insinuation of actual treatment. This is an explicitly labelled generated demo in the consuming UI.
+Composition: landscape 3:2, two equal portrait panels with a narrow neutral gutter; head-to-toe including feet, faces easily visible. No baked-in text, label, kilos, logos or watermark. The UI will add Before / After / Demo / AI-generated illustration in HTML.

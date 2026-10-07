@@ -1,0 +1,103 @@
+
+> build-sprint-app@1.0.0 deploy:dev
+> convex dev --once && npx @convex-dev/static-hosting upload --build --no-spa
+
+▌ Developing against deployment:
+▌ [Development] divyasadandn:build-sprint-app:dev/divyasadandn (dev) (dashboard: https://dashboard.convex.dev/t/divyasadandn/build-sprint-app/giant-platypus-592)
+▌ └─ https://giant-platypus-592.convex.cloud
+- Preparing Convex functions...
+
+Convex AI files are not installed. Run npx convex ai-files install to get started or npx convex ai-files disable to hide this message.
+✔ 10:55:02 Convex functions ready! (5.83s)
+🔨 Building for development...
+   Build command: npm run build
+   VITE_CONVEX_URL=https://giant-platypus-592.convex.cloud
+   STATIC_HOSTING_BASE_PATH=/
+
+
+> build-sprint-app@1.0.0 build
+> vite build
+
+vite v8.3.3 building client environment for production...
+transforming...
+✓ 9 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/space-grotesk-vietnamese-700-normal-DMty7AZE.woff2   4.20 kB
+dist/assets/space-grotesk-vietnamese-400-normal-B7xT_GF5.woff2   4.29 kB
+dist/assets/space-grotesk-vietnamese-500-normal-BmEvtly_.woff2   4.32 kB
+dist/assets/space-grotesk-vietnamese-700-normal-Duxec5Rn.woff    5.58 kB
+dist/assets/space-grotesk-vietnamese-500-normal-BTqKIpxg.woff    5.71 kB
+dist/assets/space-grotesk-vietnamese-400-normal-BIWiOVfw.woff    5.72 kB
+dist/index.html                                                  7.61 kB │ gzip: 2.44 kB
+dist/assets/space-grotesk-latin-ext-700-normal-BQnZhY3m.woff2   11.99 kB
+dist/assets/space-grotesk-latin-ext-400-normal-CfP_5XZW.woff2   12.25 kB
+dist/assets/space-grotesk-latin-ext-500-normal-DUe3BAxM.woff2   12.27 kB
+dist/assets/space-grotesk-latin-700-normal-RjhwGPKo.woff2       12.84 kB
+dist/assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2       13.31 kB
+dist/assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2       13.38 kB
+dist/assets/space-grotesk-latin-700-normal-CwsQ-cCU.woff        16.41 kB
+dist/assets/space-grotesk-latin-ext-700-normal-HVCqSBdx.woff    16.46 kB
+dist/assets/space-grotesk-latin-ext-400-normal-DRPE3kg4.woff    16.78 kB
+dist/assets/space-grotesk-latin-ext-500-normal-3dgZTiw9.woff    16.78 kB
+dist/assets/space-grotesk-latin-500-normal-CNSSEhBt.woff        16.98 kB
+dist/assets/space-grotesk-latin-400-normal-BnQMeOim.woff        17.00 kB
+dist/assets/caveat-latin-ext-500-normal-jKqJW7bC.woff2          19.59 kB
+dist/assets/caveat-latin-ext-500-normal-wUUXxlbS.woff           25.09 kB
+dist/assets/caveat-cyrillic-ext-500-normal-DcrB4vVx.woff2       25.63 kB
+dist/assets/caveat-cyrillic-ext-500-normal-DqTXtm5N.woff        30.91 kB
+dist/assets/caveat-cyrillic-500-normal-DpMZbbjM.woff2           45.46 kB
+dist/assets/caveat-latin-500-normal-B9SDL8cy.woff2              50.90 kB
+dist/assets/caveat-cyrillic-500-normal-DLSfp5IU.woff            53.43 kB
+dist/assets/caveat-latin-500-normal-Do9veZfZ.woff               62.36 kB
+dist/assets/index-CSi3Ycb5.css                                  18.26 kB │ gzip: 4.65 kB
+dist/assets/index-ePEAKU3m.js                                    4.48 kB │ gzip: 1.93 kB
+
+✓ built in 154ms
+
+🚀 Deploying to development environment
+🔒 Using secure internal functions (requires Convex CLI auth)
+Uploading 32 files with deployment ID: 67dee821-4bc4-48e0-91ec-6164ba3e6d1d
+Component: staticHosting
+
+  Generating 32 upload URLs...
+  [1/32] /assets/caveat-cyrillic-500-normal-DLSfp5IU.woff (storage)
+  [2/32] /assets/caveat-cyrillic-ext-500-normal-DcrB4vVx.woff2 (storage)
+  [3/32] /assets/caveat-cyrillic-ext-500-normal-DqTXtm5N.woff (storage)
+  [4/32] /assets/caveat-cyrillic-500-normal-DpMZbbjM.woff2 (storage)
+  [5/32] /assets/caveat-latin-500-normal-B9SDL8cy.woff2 (storage)
+  [6/32] /assets/caveat-latin-ext-500-normal-wUUXxlbS.woff (storage)
+  [7/32] /assets/index-CSi3Ycb5.css (storage)
+  [8/32] /assets/index-ePEAKU3m.js (storage)
+  [9/32] /assets/caveat-latin-ext-500-normal-jKqJW7bC.woff2 (storage)
+  [10/32] /assets/caveat-latin-500-normal-Do9veZfZ.woff (storage)
+  [11/32] /assets/space-grotesk-latin-400-normal-BnQMeOim.woff (storage)
+  [12/32] /assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2 (storage)
+  [13/32] /assets/space-grotesk-latin-500-normal-CNSSEhBt.woff (storage)
+  [14/32] /assets/space-grotesk-latin-700-normal-CwsQ-cCU.woff (storage)
+  [15/32] /assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2 (storage)
+  [16/32] /assets/space-grotesk-latin-700-normal-RjhwGPKo.woff2 (storage)
+  [17/32] /assets/space-grotesk-latin-ext-400-normal-CfP_5XZW.woff2 (storage)
+  [18/32] /assets/space-grotesk-latin-ext-400-normal-DRPE3kg4.woff (storage)
+  [19/32] /assets/space-grotesk-latin-ext-500-normal-3dgZTiw9.woff (storage)
+  [20/32] /assets/space-grotesk-latin-ext-500-normal-DUe3BAxM.woff2 (storage)
+  [21/32] /assets/space-grotesk-vietnamese-400-normal-B7xT_GF5.woff2 (storage)
+  [22/32] /assets/space-grotesk-latin-ext-700-normal-HVCqSBdx.woff (storage)
+  [23/32] /assets/space-grotesk-latin-ext-700-normal-BQnZhY3m.woff2 (storage)
+  [24/32] /assets/space-grotesk-vietnamese-500-normal-BTqKIpxg.woff (storage)
+  [25/32] /assets/space-grotesk-vietnamese-400-normal-BIWiOVfw.woff (storage)
+  [26/32] /assets/space-grotesk-vietnamese-700-normal-DMty7AZE.woff2 (storage)
+  [27/32] /assets/space-grotesk-vietnamese-500-normal-BmEvtly_.woff2 (storage)
+  [28/32] /assets/space-grotesk-vietnamese-700-normal-Duxec5Rn.woff (storage)
+  [29/32] /index.html (storage/html)
+  [30/32] /media/fictional-voice-note.mp3 (storage)
+  [31/32] /media/fictional-video.mp4 (storage)
+  [32/32] /images/everyday-voice-note.png (storage)
+  Staging manifest chunk 1/1...
+  Publishing deployment...
+
+Cleaned up 30 old storage file(s) from previous deployments
+
+✨ Upload complete!
+
+Your app is now available at: https://giant-platypus-592.convex.site

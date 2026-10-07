@@ -1,0 +1,17 @@
+
+> build-sprint-app@1.0.0 test:landing
+> playwright test
+
+
+Running 3 tests using 1 worker
+
+(node:8082) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS: live 390px page; button navigates directly to wa.me with text=Hi; no JavaScript errors. Actual phone handoff/reply requires an owner phone check.
+  ✓  1 browser-tests/can-open-agent-chat.spec.ts:3:5 › opens the public landing page and sends the button directly to WhatsApp with Hi (3.6s)
+PASS: 390px touch browser: visible cards even without JavaScript, touch swipe, tap pause/expansion, dot navigation, continuous 2D arch movement, same compact chat on phone/desktop, no horizontal page scrolling; desktop/privacy preserved. Not a physical iPhone check.
+  ✓  2 browser-tests/can-open-agent-chat.spec.ts:23:5 › shows a moving phone arch with tap expansion and the same compact group scene (10.3s)
+PASS: separated cards; one selected card lifts while track freezes; attached handwritten labels; demo audio/video playback with click fallback; stop on exit; touch pause/resume; reduced-motion support.
+  ✓  3 browser-tests/can-open-agent-chat.spec.ts:106:5 › spaces and lifts one moving card, keeps labels attached, and plays labelled demo media (4.9s)
+
+  3 passed (27.4s)

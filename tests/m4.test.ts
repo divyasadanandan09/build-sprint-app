@@ -241,7 +241,7 @@ it("an explicit new review gets a combined draft instead of becoming the previou
   await post("This is a review: Test Ria: Good!"); await tap(buttons()[0].reply.id);
   generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Test Tara", passages: [praise] }) });
   await post("This is a review: Test Tara: " + praise);
-  expect(sent.at(-1).interactive.action.parameters.display_text).toBe("Send to client");
+  expect(sent.at(-1).interactive.action.parameters.display_text).toBe("Send to Test Tara");
   expect(sent.at(-1).interactive.body.text).toContain("Test Tara,");
   expect((await t.run(ctx => ctx.db.query("replies").order("desc").first()))?.state).toBe("complete");
 });
@@ -252,7 +252,7 @@ it("a direct named review gets one combined draft with a button and no added con
   expect(sent[0].interactive.body.text).toContain("Would you be okay forwarding it to your society group?");
   expect(sent[0].interactive.body.text).toContain(praise);
   expect(sent[0].interactive.body.text).not.toContain("wa.me/");
-  expect(sent[0].interactive.action.parameters.display_text).toBe("Send to client");
+  expect(sent[0].interactive.action.parameters.display_text).toBe("Send to Test Ria");
   expect(decodeURIComponent(sent[0].interactive.action.parameters.url.split("?text=")[1])).toBe(sent[0].interactive.body.text);
 });
 it("bold review labels, triggers and passages reach AI as review words, not formatting", async () => {

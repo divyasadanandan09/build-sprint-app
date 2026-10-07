@@ -5,6 +5,7 @@ import { workflow } from "./m2Workflow";
 import { copy } from "./lib/copy";
 import { displayDate, isNudgeTime, istDay, istWeek, timingMode } from "./lib/timing";
 import { buttonPayload, textPayload } from "./lib/whatsapp";
+import { scheduleFlow } from "./m5Store";
 import { deliver } from "./onboarding";
 
 export const tick = internalMutation({
@@ -55,7 +56,11 @@ export const finish = internalMutation({
     const event = await ctx.db.get(checkInId);
     if (!event || event.state !== "sending") return null;
     await ctx.db.patch(checkInId, { state: failure ? failure === "whatsapp_account_locked" ? "blocked" : "failed" : "sent", ...(failure ? { failure } : {}) });
-    if (!failure) await ctx.db.patch(event.clientId, { status: "checked_in", lastStepAt: event.createdAt });
+    if (!failure) {
+      await ctx.db.patch(event.clientId, { status: "checked_in", lastStepAt: event.createdAt });
+      const client = await ctx.db.get(event.clientId);
+      if (client) await scheduleFlow(ctx, { trainerId: event.trainerId, name: client.name, source: checkInId, phase: "waiting", createdAt: event.createdAt });
+    }
     return null;
   },
 });
@@ -77,7 +82,7 @@ export const sendNudge = internalAction({
         });
       } else {
         const nudge = event.dueDate === istDay(Date.now()) ? copy.nudge(event.name) : copy.overdueNudge(event.name, displayDate(event.dueDate));
-        failure = await deliver(ctx, event.trainerId, checkInId, "nudge", buttonPayload(event.phone, `${nudge}\n\n${event.draft}`, event.draft));
+        failure = await deliver(ctx, event.trainerId, checkInId, "nudge", buttonPayload(event.phone, `${nudge}\n\n${event.draft}`, event.draft, copy.sendTo(event.name)));
       }
     } catch { failure = "nudge_processing_failed"; }
     await ctx.runMutation(internal.m3.finish, { checkInId, failure });

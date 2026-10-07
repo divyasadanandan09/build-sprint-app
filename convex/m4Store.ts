@@ -1,4 +1,5 @@
 import { v } from "convex/values";
+import { flowFor, receivedReply, scheduleFlow } from "./m5Store";
 import { internalMutation, internalQuery } from "./_generated/server";
 
 export const context = internalQuery({
@@ -8,9 +9,9 @@ export const context = internalQuery({
     const latest = await ctx.db.query("replies").withIndex("by_trainer", q => q.eq("trainerId", args.trainerId)).order("desc").first();
     const requested = args.replyId ? await ctx.db.get(args.replyId) : latest;
     const reply = requested?.trainerId === args.trainerId ? requested : null;
-    // Paginate all owned clients; checked-in and short replies are the waiting set.
+    // Paginate owned clients waiting after a check-in, short follow-up or sharing ask.
     const page = await ctx.db.query("clients").withIndex("by_trainer", q => q.eq("trainerId", args.trainerId)).paginate({ numItems: 9, cursor: args.cursor ?? null });
-    const clients = page.page.filter(c => c.status === "checked_in" || c.status === "short_reply");
+    const clients = page.page.filter(c => ["checked_in", "short_reply", "asked"].includes(c.status));
     const client = reply?.clientId ? await ctx.db.get(reply.clientId) : null;
     return { trainer, reply, clients, client: client?.trainerId === args.trainerId ? client : null, cursor: page.isDone ? null : page.continueCursor };
   },
@@ -29,6 +30,7 @@ export const begin = internalMutation({
     if (last && !["complete", "failed"].includes(last.state)) await ctx.db.patch(last._id, { state: "complete" });
     const clientId = following ? last.clientId : named?._id;
     const clientName = following ? last.clientName : args.name;
+    if (clientName) await receivedReply(ctx, inbound.trainerId, clientName);
     return ctx.db.insert("replies", { trainerId: inbound.trainerId, inboundId: inbound._id, transcript: args.transcript, ...(args.read ? { read: args.read } : {}), kind: inbound.type === "audio" ? "voice" : "text", state: clientName ? "classifying" : "select_client", followupUsed: following || named?.followupUsed === true || namedReply?.followupUsed === true, createdAt: Date.now(), ...(clientId ? { clientId } : {}), ...(clientName ? { clientName } : {}) });
   },
 });
@@ -37,8 +39,9 @@ export const select = internalMutation({
   handler: async (ctx, args) => {
     const reply = await ctx.db.get(args.replyId), client = await ctx.db.get(args.clientId);
     const latest = await ctx.db.query("replies").withIndex("by_trainer", q => q.eq("trainerId", args.trainerId)).order("desc").first();
-    if (!reply || latest?._id !== reply._id || reply.trainerId !== args.trainerId || reply.state !== "select_client" || client?.trainerId !== args.trainerId || !["checked_in", "short_reply"].includes(client.status)) return false;
+    if (!reply || latest?._id !== reply._id || reply.trainerId !== args.trainerId || reply.state !== "select_client" || client?.trainerId !== args.trainerId || !["checked_in", "short_reply", "asked"].includes(client.status)) return false;
     const previous = await ctx.db.query("replies").withIndex("by_trainer_name", q => q.eq("trainerId", args.trainerId).eq("clientName", client.name)).order("desc").first();
+    await receivedReply(ctx, args.trainerId, client.name);
     await ctx.db.patch(reply._id, { clientId: client._id, clientName: client.name, followupUsed: client.followupUsed === true || previous?.followupUsed === true, state: "classifying" });
     return true;
   },
@@ -56,6 +59,7 @@ export const update = internalMutation({
       const status = args.read === "unhappy" ? "unhappy" : args.kind === "followup" || args.read === "short" && args.state === "select_question" ? "short_reply" : args.kind === "recommendation" ? "happy" : null;
       if (status) await ctx.db.patch(client._id, { status, lastStepAt: Date.now(), ...(args.kind === "followup" ? { followupUsed: true } : {}) });
     }
+    if (reply.clientName && args.kind === "unhappy" && args.draft) await scheduleFlow(ctx, { trainerId: args.trainerId, name: reply.clientName, source: `${reply._id}:${args.kind}`, phase: "paused", createdAt: Date.now() });
     // Only transcripts survive; discard the temporary provider-media reference.
     if (args.transcript !== undefined || args.state === "failed") await ctx.db.patch(reply.inboundId, { mediaId: undefined });
     return null;
@@ -70,6 +74,7 @@ export const selectName = internalMutation({
     if (!reply || latest?._id !== reply._id || reply.trainerId !== args.trainerId || reply.state !== "select_client" || !/^[\p{L} .'-]{1,80}$/u.test(args.name)) return false;
     const client = await ctx.db.query("clients").withIndex("by_trainer_name", q => q.eq("trainerId", args.trainerId).eq("name", args.name)).first();
     const previous = await ctx.db.query("replies").withIndex("by_trainer_name", q => q.eq("trainerId", args.trainerId).eq("clientName", args.name)).order("desc").first();
+    await receivedReply(ctx, args.trainerId, args.name);
     await ctx.db.patch(reply._id, { followupUsed: client?.followupUsed === true || previous?.followupUsed === true, clientName: args.name, state: "classifying", ...(client ? { clientId: client._id } : {}) });
     return true;
   },
@@ -80,8 +85,10 @@ export const pausedName = internalQuery({
   handler: async (ctx, args) => {
     const client = await ctx.db.query("clients").withIndex("by_trainer_name", q => q.eq("trainerId", args.trainerId).eq("name", args.name)).first();
     if (client?.status === "unhappy") return true;
+    const flow = await flowFor(ctx, args.trainerId, args.name);
+    if (flow?.phase === "paused") return true;
     const last = await ctx.db.query("replies").withIndex("by_trainer_name", q => q.eq("trainerId", args.trainerId).eq("clientName", args.name)).order("desc").take(2);
-    return last.some(reply => reply._id !== args.excludeReplyId && reply.read === "unhappy");
+    return last.some(reply => reply._id !== args.excludeReplyId && reply.read === "unhappy" && (!flow?.unpausedAt || reply.createdAt > flow.unpausedAt));
   },
 });
 

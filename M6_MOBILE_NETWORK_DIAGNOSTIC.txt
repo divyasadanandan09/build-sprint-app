@@ -1,0 +1,3 @@
+Simulated slow connection: headline visible after 1.7 seconds.
+Direct WhatsApp link ready after 2.2 seconds.
+This uses the Mac connection with throttling; it does not prove access on the owner’s mobile carrier.

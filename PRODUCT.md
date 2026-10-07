@@ -147,3 +147,7 @@ The instructor runs it for 2 weeks without me in the loop.
 Last: I can close it, reopen it, and my data is still there.
 
 After the sprint (parked): extend to other local service providers like home cooks and chefs, and find paying instructors outside my neighbourhood within 2 months.
+
+Owner correction, 7 Oct — M5: a sharing ask has only the posting-status question; do not follow it with a separate no-reply prompt when the instructor hasn't answered. Keep no-reply reminders for private check-ins/short follow-ups. Client-name buttons identify the relevant client. URL send taps remain unobservable, so the posting timer still starts at draft creation unless the owner explicitly chooses a separate confirmation step.
+
+Owner correction, 7 Oct — changing a posting answer: the instructor can correct a saved posted/said-no/Not yet answer by tapping another outcome and explicitly confirming. This is a correction to the record, not permission to reset reminder limits. Leave it keeps the previous answer. An explicitly corrected refusal supersedes the earlier saved refusal; a fresh pasted review alone still cannot override it. Correct confirmed-post counts when an answer changes.

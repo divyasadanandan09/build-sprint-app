@@ -1,8 +1,17 @@
 import { httpRouter } from "convex/server";
 import { httpAction } from "./_generated/server";
-import { internal } from "./_generated/api";
+import { internal, components } from "./_generated/api";
+import { registerStaticRoutes } from "@convex-dev/static-hosting";
 import { inspectIncoming, validSignature } from "./lib/webhook";
 const http = httpRouter();
+http.route({ path: "/landing-config", method: "GET", handler: httpAction(async () => {
+  // Only the public business number leaves the server. Never return provider credentials.
+  const number = process.env.WHATSAPP_AGENT_NUMBER;
+  if (!number || !/^[1-9]\d{7,14}$/.test(number)) {
+    return Response.json({ chatUrl: null }, { status: 503, headers: { "Cache-Control": "no-store" } });
+  }
+  return Response.json({ chatUrl: `https://wa.me/${number}?text=Hi` }, { headers: { "Cache-Control": "no-store" } });
+}) });
 http.route({ path: "/privacy", method: "GET", handler: httpAction(async () => {
   return new Response(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><h1>Privacy policy</h1><p>This WhatsApp assistant helps fitness trainers turn their clients' feedback into recommendations. We store the trainer's WhatsApp number, the names and start dates of clients she adds, and the reviews and replies she forwards to us, so the assistant can draft messages for her. Voice notes are deleted once transcribed. We never message clients, never read WhatsApp groups, and never sell or share data. To delete your data, message the assistant "Delete my data" or email emailpromo97@gmail.com</p></body></html>`, {
     headers: { "Content-Type": "text/html; charset=utf-8" },
@@ -73,4 +82,6 @@ http.route({ path: "/whatsapp", method: "POST", handler: httpAction(async (ctx, 
     console.info("whatsapp_post " + JSON.stringify(log));
   }
 }) });
+// Preserve /privacy and /whatsapp at their existing addresses.
+registerStaticRoutes(http, components.staticHosting);
 export default http;

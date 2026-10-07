@@ -1,0 +1,3 @@
+
+> build-sprint-app@1.0.0 check
+> tsc --noEmit -p convex/tsconfig.json && tsc --noEmit -p tsconfig.frontend.json

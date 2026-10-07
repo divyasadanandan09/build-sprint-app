@@ -13,7 +13,7 @@ async function classify(ctx: ActionCtx, trainerId: Id<"trainers">, replyId: Id<"
   const { reply, trainer, client } = await ctx.runQuery(internal.m4Store.context, { trainerId, replyId });
   if (!reply || !trainer || !reply.clientName) return "invalid_reply";
   const send = (part: string, text: string) => deliver(ctx, trainerId, source, part, textPayload(trainer.phone, text));
-  // Unhappy stays paused until M5 provides the explicitly authorized unpause.
+  // Only the trainer can unpause an unhappy client.
   let text = normalizeReviewInput(reply.transcript);
   if (reply.kind === "voice" && !text) {
     const audio = await ctx.runAction(internal.voice.transcribe, { inboundId: reply.inboundId, trainerId });
@@ -32,6 +32,11 @@ async function classify(ctx: ActionCtx, trainerId: Id<"trainers">, replyId: Id<"
     await ctx.runMutation(internal.m4Store.update, { trainerId, replyId, state: "complete", read: "unhappy" });
     return send("paused", copy.unhappy(reply.clientName) + "\n\n" + text);
   }
+  const flow = await ctx.runQuery(internal.m5Store.guard, { trainerId, name: reply.clientName });
+  if (flow?.phase === "declined") {
+    await ctx.runMutation(internal.m4Store.update, { trainerId, replyId, state: "complete", transcript: text });
+    return send("private-only", copy.privateOnly + "\n\n" + text);
+  }
   const triggering = await ctx.runQuery(internal.voice.inbound, { inboundId: reply.inboundId });
   if (triggering) await sendWhatsApp(typingPayload(triggering.messageId));
   const forcedRead = override ?? reply.read;
@@ -48,7 +53,7 @@ async function classify(ctx: ActionCtx, trainerId: Id<"trainers">, replyId: Id<"
     const draft = copy.unhappyDraft(reply.clientName);
     await ctx.runMutation(internal.m4Store.update, { trainerId, replyId, state: "complete", read: "unhappy", kind: "unhappy", draft });
     const failure = await send("private-feedback", copy.unhappy(reply.clientName) + "\n\n" + text);
-    return failure ?? deliver(ctx, trainerId, source, "private-draft", buttonPayload(trainer.phone, draft, draft));
+    return failure ?? deliver(ctx, trainerId, source, "private-draft", buttonPayload(trainer.phone, draft, draft, copy.sendTo(reply.clientName)));
   }
   if (result.read === "short" && !reply.followupUsed) {
     await ctx.runMutation(internal.m4Store.update, { trainerId, replyId, state: "select_question", read: "short" });
@@ -59,9 +64,12 @@ async function classify(ctx: ActionCtx, trainerId: Id<"trainers">, replyId: Id<"
   let recommendation = result.recommendation ?? formatRecommendation([groupWording(text.replace(/^[\p{L} .'-]{1,80}:\s*/u, ""))], []);
   const draft = combinedReview(reply.clientName, recommendation);
   if (!draft) return send("error", copy.reviewError);
+  const createdAt = Date.now();
   await ctx.runMutation(internal.m4Store.update, { trainerId, replyId, state: "complete", read: result.read, kind: "recommendation", draft });
   const failure = await send("happy", copy.happy(reply.clientName));
-  return failure ?? deliver(ctx, trainerId, source, "happy-draft", buttonPayload(trainer.phone, draft, draft));
+  const draftFailure = failure ?? await deliver(ctx, trainerId, source, "happy-draft", buttonPayload(trainer.phone, draft, draft, copy.sendTo(reply.clientName)));
+  if (!draftFailure) await ctx.runMutation(internal.m5Store.start, { trainerId, name: reply.clientName, source: `${replyId}:recommendation`, phase: "asked", createdAt });
+  return draftFailure;
 }
 async function choose(ctx: ActionCtx, trainerId: Id<"trainers">, replyId: Id<"replies">, source: string, forceList = false, cursor: string | null = null): Promise<string | null> {
   const data = await ctx.runQuery(internal.m4Store.context, { trainerId, replyId, cursor });
@@ -106,8 +114,11 @@ export const handle = internalAction({
         return { handled: true, failure: await classify(ctx, trainerId, reply._id, inboundId, ["happy", "short", "unhappy"][Number(value)]) };
       } else if (action === "question" && reply.state === "select_question" && /^[0-2]$/.test(value ?? "")) {
         const draft = questions[Number(value)][1];
+        const createdAt = Date.now();
         await ctx.runMutation(internal.m4Store.update, { trainerId, replyId: reply._id, state: "awaiting_followup", kind: "followup", draft });
-        return { handled: true, failure: await deliver(ctx, trainerId, inboundId, "followup", buttonPayload(data.trainer!.phone, draft, draft)) };
+        const failure = await deliver(ctx, trainerId, inboundId, "followup", buttonPayload(data.trainer!.phone, draft, draft, copy.sendTo(reply.clientName!)));
+        if (!failure && reply.clientName) await ctx.runMutation(internal.m5Store.start, { trainerId, name: reply.clientName, source: `${reply._id}:followup`, phase: "waiting", createdAt });
+        return { handled: true, failure };
       }
       return { handled: true, failure: null };
     }

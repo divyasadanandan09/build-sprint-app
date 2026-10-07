@@ -1,0 +1,32 @@
+
+> build-sprint-app@1.0.0 test:landing
+> playwright test --grep keeps phone cards
+
+
+Running 1 test using 1 worker
+
+(node:6128) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 browser-tests/can-open-agent-chat.spec.ts:23:5 › keeps phone cards visible and swipable, compacts the chat, and keeps privacy intact (1.9s)
+
+
+  1) browser-tests/can-open-agent-chat.spec.ts:23:5 › keeps phone cards visible and swipable, compacts the chat, and keeps privacy intact
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 540
+    Received:    790
+
+      38 |   expect(await page.locator('img.lifestyle').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
+      39 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    > 40 |   expect(await page.locator('.photo-panel').evaluate(e => e.getBoundingClientRect().height)).toBeLessThanOrEqual(540);
+         |                                                                                              ^
+      41 |   await expect(page.getByRole('button', { name: 'text message', exact: true })).toHaveAttribute('aria-current', 'true');
+      42 |   await page.screenshot({ path: 'M6_LANDING_390.png', fullPage: true });
+      43 |   const carousel = page.locator('.coverflow');
+        at /Users/divyaabhilash/build-sprint-app/browser-tests/can-open-agent-chat.spec.ts:40:94
+
+    Error Context: test-results/can-open-agent-chat-keeps--117fe-at-and-keeps-privacy-intact/error-context.md
+
+  1 failed
+    browser-tests/can-open-agent-chat.spec.ts:23:5 › keeps phone cards visible and swipable, compacts the chat, and keeps privacy intact

@@ -37,7 +37,7 @@ it("sends an eligible dev client one nudge and a check-in-only button; repeated 
   expect(sent).toHaveLength(1);
   expect(sent[0].interactive.body.text).toBe(copy.nudge("Priya") + "\n\n" + copy.checkIn("Priya", "Test Instructor"));
   const button = sent[0].interactive.action.parameters;
-  expect(button.display_text).toBe("Send to client");
+  expect(button.display_text).toBe("Send to Priya");
   expect(decodeURIComponent(button.url.split("?text=")[1])).toBe(copy.checkIn("Priya", "Test Instructor"));
   expect(sent.map((message) => JSON.stringify(message)).join(" ")).not.toContain("society");
   await t.mutation(internal.m3.tick, { source: "dev" }); await drain(); expect(sent).toHaveLength(1);

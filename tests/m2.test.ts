@@ -231,7 +231,7 @@ describe("M2 signed webhook and onboarding", () => {
     const combined = copy.happyAsk("Priya", review);
     expect(messages[0].interactive.body.text).toBe(combined);
     const button = messages[0].interactive.action.parameters;
-    expect(button.display_text).toBe("Send to client");
+    expect(button.display_text).toBe("Send to Priya");
     expect(decodeURIComponent(button.url.split("?text=")[1])).toBe(combined);
     expect(messages).toHaveLength(1);
     expect(calls.some((c) => c.text?.body === copy.nextClient)).toBe(false);
@@ -262,7 +262,7 @@ describe("M2 signed webhook and onboarding", () => {
     generate.mockResolvedValue({ text: JSON.stringify({ read: "happy", clientName: "Priya", passages: [review] }) });
     await post(envelope(named)); await drain();
     expect(calls.some((c) => c.interactive?.body.text === copy.happyAsk("Priya", review))).toBe(true);
-    expect(calls.find((c) => c.interactive?.action.parameters.display_text === "Send to client")?.interactive.body.text).toBe(copy.happyAsk("Priya", review));
+    expect(calls.find((c) => c.interactive?.action.parameters.display_text === "Send to Priya")?.interactive.body.text).toBe(copy.happyAsk("Priya", review));
   });
   it("deduplicates simultaneous webhook retries without prompting for a client", async () => {
     await Promise.all([post(envelope()), post(envelope())]); await drain();

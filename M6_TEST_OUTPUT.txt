@@ -1,0 +1,15 @@
+
+> build-sprint-app@1.0.0 test
+> vitest run
+
+
+ RUN  v5.0.3 /Users/divyaabhilash/build-sprint-app
+
+
+ Test Files  6 passed (6)
+      Tests  110 passed (110)
+   Start at  08:53:43
+   Duration  7.06s (tests 91%, transform 5%, import 4%)
+
+    Isolate  6 workers spawned · ~96ms startup each (spawn + environment, per file)
+             at least ~478ms faster with isolate: false — reuses workers across files instead of one per file

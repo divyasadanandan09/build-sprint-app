@@ -1,0 +1,52 @@
+
+> build-sprint-app@1.0.0 demo:m5
+> M5_SHOW_EXCHANGE=1 vitest run tests/m5.test.ts --testNamePattern="starts the posting timer" --reporter=verbose
+
+
+ RUN  v5.0.3 /Users/divyaabhilash/build-sprint-app
+
+stdout | tests/m5.test.ts > starts the posting timer from a named review through the signed webhook
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["text"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > starts the posting timer from a named review through the signed webhook
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > starts the posting timer from a named review through the signed webhook
+MOCK M5 EXCHANGE — signed webhook, fake clock and all providers mocked
+Trainer: This is a review: Test Nia: I enjoy the music in class. I look forward to every session.
+Agent: Test Nia, so happy it's working for you! I put your words together below. Would you be okay forwarding it to your society group?
+
+"I've been going to Mayuri's sessions and I enjoy the music in the class. I look forward to every session."
+Agent: Did Test Nia share her recommendation?
+Agent: Test Nia's society just heard about you from a neighbour. That's 1 referral this month.
+Trainer taps: Test Nia posted it
+Later ticks: no further messages; total real AI calls: 0
+
+ ✓ tests/m5.test.ts > starts the posting timer from a named review through the signed webhook 392ms
+ ↓ tests/m5.test.ts > sends one reminder after three dev minutes, gives a check-in-only draft, and never chases again
+ ↓ tests/m5.test.ts > Leave it stops all pending chases without inventing an acknowledgement
+ ↓ tests/m5.test.ts > Not yet asks exactly once more after three minutes and then stops
+ ↓ tests/m5.test.ts > She said no sends one combined thank-you/button and prevents later sharing asks
+ ↓ tests/m5.test.ts > uses real deduplicated trainer-specific counts and the IST month boundary
+ ↓ tests/m5.test.ts > ignores forged, cross-trainer, stale and repeated buttons
+ ↓ tests/m5.test.ts > uses days in prod, waits safely outside the 24-hour window, then sends once after a fresh Hi
+ ↓ tests/m5.test.ts > records Meta rejection without claiming delivery or retrying
+ ↓ tests/m5.test.ts > a newly identified reply cancels a queued reminder before it is sent
+ ↓ tests/m5.test.ts > unpauses an unhappy named client only on the trainer command and requires fresh client words
+ ↓ tests/m5.test.ts > starts M5 from a successful M3 check-in and keeps the reminder allowance across later asks
+ ↓ tests/m5.test.ts > handles the exact off-topic fallback without a real provider call
+ ↓ tests/m5.test.ts > queues all due events in bounded batches, including more than fifty, once only
+ ↓ tests/m5.test.ts > a tracked unhappy client unpauses, stays selectable and starts posting timers only after a fresh happy reply
+ ↓ tests/m5.test.ts > a short follow-up starts only the no-reply timer and a further reply replaces it with posting timers
+ ↓ tests/m5.test.ts > does not create timers for a draft rejected by Meta
+ ↓ tests/m5.test.ts > a forwarded positive reply from a declined client remains private, without an AI call or a new ask
+ ↓ tests/m5.test.ts > still enforces the 2000-character limit for feedback from a declined client
+ ↓ tests/m5.test.ts > never sends a no-reply prompt while waiting for the trainer to answer the posting question
+ ↓ tests/m5.test.ts > cancels an old queued reminder for an existing sharing ask and ignores its old reminder buttons
+ ↓ tests/m5.test.ts > personalizes the send and posting buttons without changing the draft or trusting a button title
+ ↓ tests/m5.test.ts > keeps long client names intact in the question and identity while shortening only the button labels
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 22 skipped (23)
+   Start at  07:46:39
+   Duration  710ms (tests 64%, transform 28%, import 8%, worker 1%)

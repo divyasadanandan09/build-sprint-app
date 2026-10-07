@@ -7,8 +7,29 @@ export function reviewWording(recommendation: string): string {
   }
   return `Mayuri's sessions:\n\n${recommendation}`;
 }
+function namedButton(prefix: string, name: string, suffix = ""): string {
+  const limit = 20 - prefix.length - suffix.length;
+  let shortened = "";
+  for (const letter of name) {
+    if ((shortened + letter).length > limit) break;
+    shortened += letter;
+  }
+  return prefix + shortened.trimEnd() + suffix;
+}
 // Fixed copy from DESIGN.md. Dynamic recommendation text is the client's text.
 export const copy = {
+  sendTo: (name: string) => namedButton("Send to ", name),
+  postedButton: (name: string) => namedButton("", name, " posted it"),
+  declinedButton: (name: string) => namedButton("", name, " said no"),
+  noReply: (name: string) => `No reply from ${name} yet. Want to send one gentle reminder?`,
+  reminder: (name: string) => `Hi ${name}, just checking in again. No rush at all!`,
+  postedQuestion: (name: string) => `Did ${name} share her recommendation?`,
+  posted: (name: string, count: number) => `${name}'s society just heard about you from a neighbour. That's ${count} referral${count === 1 ? '' : 's'} this month.`,
+  declined: "No problem. Here's a thank-you.",
+  thankYou: (name: string) => `No worries at all, ${name}! Thank you for telling me how it's going. See you Thursday.`,
+  unpaused: "[COPY NEEDED: unhappy client unpaused; forward her fresh reply]",
+  unknownUnpause: "[COPY NEEDED: client was not paused or name was not found]",
+  privateOnly: "[COPY NEEDED: client declined to post; keep this feedback private]",
   whose: "Whose reply is this?",
   isReply: (name: string) => `Is this ${name}'s reply?`,
   voiceError: "I couldn't hear that voice note clearly. Forward it again, or paste her words as text.",

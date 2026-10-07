@@ -1,0 +1,50 @@
+
+ RUN  v5.0.3 /Users/divyaabhilash/build-sprint-app
+
+stdout | tests/m5.test.ts > confirms a changed answer before correcting a posted count and sending the new step
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > confirms a changed answer before correcting a posted count and sending the new step
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > can keep an answer, rejects another trainer and superseded confirmations, and resumes Not yet once
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > can keep an answer, rejects another trainer and superseded confirmations, and resumes Not yet once
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+stdout | tests/m5.test.ts > can keep an answer, rejects another trainer and superseded confirmations, and resumes Not yet once
+whatsapp_post {"signature_valid":true,"phone_number_id":["123456789"],"contains_messages":true,"contains_statuses":false,"message_type":["interactive"],"ignored_entry_reasons":[],"ignored_reason":null,"queued_messages":1}
+
+ ❯ tests/m5.test.ts (25 tests | 2 failed | 23 skipped) 390ms
+   × confirms a changed answer before correcting a posted count and sending the new step 316ms
+   × can keep an answer, rejects another trainer and superseded confirmations, and resumes Not yet once 73ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/m5.test.ts > confirms a changed answer before correcting a posted count and sending the new step
+TypeError: Cannot read properties of undefined (reading 'body')
+ ❯ tests/m5.test.ts:299:22
+    297|   await post("", posted);
+    298|   await post("", declined);
+    299|   expect(sent.at(-1).interactive.body.text).toContain("confirm change"…
+       |                      ^
+    300|   expect((await t.run(ctx => ctx.db.query("monthlyPosts").collect()))[…
+    301|   const yes = button("Yes"); await post("", yes);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/m5.test.ts > can keep an answer, rejects another trainer and superseded confirmations, and resumes Not yet once
+TypeError: Cannot read properties of undefined (reading 'action')
+ ❯ buttons tests/m5.test.ts:55:35
+
+ ❯ button tests/m5.test.ts:56:35
+ ❯ tests/m5.test.ts:314:44
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 23 skipped (25)
+   Start at  10:21:04
+   Duration  738ms (tests 61%, transform 29%, import 9%, worker 1%)

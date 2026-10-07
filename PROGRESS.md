@@ -46,3 +46,27 @@ One line per milestone, added after I confirm it works: date, milestone, what no
 - 7 Oct, M4 wording refinement: instructor/session context now flows naturally in eligible first-person reviews using the owner's attendance wording; exact music-review example, combined/unnamed button drafts and limits covered by 82 mocked tests; compile/dev deploy pass, no extra real AI calls, phone check pending, uncommitted.
 
 7 Oct: Owner confirmed M4 including instructor/session wording; 82 mocked tests and compile pass. Approved for commit, push and production deploy; M5 next.
+
+7 Oct: M5 built and dev deployed; 101 mocked tests, compile and command demo pass; no real AI calls. Phone confirmation pending, three copy placeholders listed; outside-24h follow-up templates BLOCKED. M5 uncommitted/unpushed; no M6.
+
+7 Oct: M5 phone correction dev deployed: suppress parallel sharing reminders, personalize known-client buttons and add referral celebration wording; 105 mocked tests/compile pass, no new AI calls. Send-tap trigger needs an explicit confirmation choice; no commit/push or M6.
+
+7 Oct: Owner authorized building during Meta review; M6 landing page dev deployed, 110 mocked tests, backend/frontend compile and 2 live Chrome checks pass, 390px screenshot saved. M5/M6 phone confirmation BLOCKED by disabled Meta account; 3 landing copy gaps recorded, no OpenAI/Sarvam calls (1 image-generation call), no commit/push/prod deploy.
+
+7 Oct: M5 confirmed answer corrections and M6 moving coverflow/society-thread preview dev deployed; 113 mocked tests, compile and 3 live browser checks pass, 390px screenshot updated. Meta CONNECTED again; mobile-data page failure remains open awaiting exact error. New copy placeholders recorded, no real AI/provider sends, no commit/push/prod deploy.
+
+7 Oct: Owner confirms chat follow-ups; M6 card gaps/individual lift, attached annotations, labelled fictional audio/video, reference-inspired group scene and rewritten outcome copy dev deployed. 113 mocked tests, compile and 3 live browser checks pass; 390px screenshot updated, no new provider/AI calls, missing copy and mobile-data issue remain recorded, no commit/push/prod deploy.
+
+7 Oct: M6 arched card stack, preview aliases, Engrace 2 Owners/trailing message and Demo labels dev deployed; compile and 3 live browser checks pass, 390px screenshot inspected. Actual speaking video/matching before-after media remain BLOCKED on supplied assets/confirmed result; mobile-data issue open, no new AI calls or commit/push/prod deploy.
+
+7 Oct: M6 headline/group conversation updated and generated matching-avatar before/after demo replaces placeholder; dev deployed, compile/live browser evidence and 390px screenshots in M6_MEDIA_NOTES.md. Talking-avatar video remains BLOCKED because no video-generation tool is available; one image call (M6 total 2), no commit/push/prod deploy.
+
+7 Oct: M6 phone carousel now uses native swipe/dots with visible no-script fallback and compact 482px group scene (was790px); dev deployed, compile and 3 live browser checks pass including genuine touch/auto-advance, 390px screenshot inspected. Owner iPhone Chrome check pending; no new AI calls or commit/push/prod deploy.
+
+7 Oct: M6 shared compact second-fold scene removes overlay annotation; phone hero restores continuous 2D arch with tap pause/expand and no-script fallback, desktop hover retained. Dev deployed; compile and3 live browser checks pass,390px screenshot inspected; iPhone confirmation pending, no new AI calls or commit/push/prod deploy.
+
+7 Oct: Owner confirmed iPhone Reduce Motion caused stopped carousel; Play now explicitly starts motion while respecting initial preference, stale mobile hover guarded. Smaller240px phone cards with gaps dev deployed; compile/3 live browser checks pass,390px screenshot inspected; physical phone recheck pending, no new AI calls or commit/push/prod deploy.
+
+7 Oct: Owner confirms the smaller/spaced phone carousel and Reduce Motion Play fix work and requests the next build; M6 UI approval recorded. PLAN ends at M6; launch readiness and remaining talking-video/mobile-data/copy/template checks still tracked separately.
+
+7 Oct: M6 release approved by owner; approved M5/M6 changes pass113 mocked tests and compile, production public assistant number configured with keys kept in Convex; committing/pushing before production deployment and live page verification.

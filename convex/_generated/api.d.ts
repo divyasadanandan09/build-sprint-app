@@ -25,6 +25,8 @@ import type * as m2Workflow from "../m2Workflow.js";
 import type * as m3 from "../m3.js";
 import type * as m4 from "../m4.js";
 import type * as m4Store from "../m4Store.js";
+import type * as m5 from "../m5.js";
+import type * as m5Store from "../m5Store.js";
 import type * as onboarding from "../onboarding.js";
 import type * as voice from "../voice.js";
 
@@ -52,6 +54,8 @@ declare const fullApi: ApiFromModules<{
   m3: typeof m3;
   m4: typeof m4;
   m4Store: typeof m4Store;
+  m5: typeof m5;
+  m5Store: typeof m5Store;
   onboarding: typeof onboarding;
   voice: typeof voice;
 }>;
@@ -86,4 +90,5 @@ export declare const components: {
   agent: import("@convex-dev/agent/_generated/component.js").ComponentApi<"agent">;
   workflow: import("@convex-dev/workflow/_generated/component.js").ComponentApi<"workflow">;
   rateLimiter: import("@convex-dev/rate-limiter/_generated/component.js").ComponentApi<"rateLimiter">;
+  staticHosting: import("@convex-dev/static-hosting/_generated/component.js").ComponentApi<"staticHosting">;
 };

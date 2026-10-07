@@ -202,10 +202,47 @@ The agent has no visual design of its own. It looks like WhatsApp because it is 
 - A web app or dashboard for the trainer.
 - Instagram content, a testimonial library, brand templates.
 
+### Owner-requested M5 status correction, 7 Oct
+- After a posting question has been answered, tapping another outcome asks for confirmation before changing it. Buttons: **Yes** and **Leave it** (keep the saved answer). Typed Yes or No also answers the latest delivered confirmation.
+- Exact confirmation copy is missing: `[COPY NEEDED: {name} already marked {previous}; confirm change to {target}]`.
+- Yes applies the newly selected step: posted celebration, said-no thank-you, or the remaining Not yet repeat. Not yet acknowledgement: `[COPY NEEDED: {name} status changed to Not yet]`.
+- Do not reset the one-repeat or one-reminder limits. A correction away from posted removes that original month's count; a newly confirmed posted answer counts once. Duplicate/old confirmations cannot change the saved state.
+
 ## 5. Landing page first screen
 - **Headline:** Your happy clients already know your next ones.
 - **Under it:** We tell you who to ask and when. They reply by voice note. Their society group sees a neighbour's word, not your ad.
 - **Button:** Paste one review. It opens `https://wa.me/{agent number}?text=Hi`.
+
+### M6 implementation notes, 7 Oct
+- The four `refs/` files are missing. The page follows the written component, type, colour and motion rules above.
+- Preview messages use the approved fictional Priya/Mayuri example in 4.5. The lifestyle photo is generated, not a real client's testimonial. No before/after result is invented.
+- Missing visible copy: `[COPY NEEDED: illustrative preview label]`, `[COPY NEEDED: approved before/after example]`, and the configuration-error message `[COPY NEEDED: landing chat link unavailable]`.
+- “How it works” is the section name already specified in section 2; its three captions reuse the three exact sentences under the first-screen headline. The marker annotation reuses “a neighbour's word”.
+- Footer link: **Privacy policy**, using the owner's earlier approved privacy-page title.
+
+### Owner refinement, 7 Oct — carousel and society thread
+- Replace the fixed hero layout with a continuous right-to-left four-card coverflow. Hover or keyboard focus pauses it and zooms out; touch toggles pause/resume, and an icon control provides a persistent pause. Reduced-motion preferences disable autoplay.
+- Top-right captions use the existing section 2 type names: **before/after photo**, **text message**, **voice note**, **short video**.
+- The second section shows the same approved fictional recommendation inside a generic society-group thread on the lifestyle photo. No logo, pixel-copied WhatsApp UI, real group data or invented neighbour replies.
+- New missing copy: `[COPY NEEDED: society group name]`, `[COPY NEEDED: pause testimonial carousel]`, `[COPY NEEDED: resume testimonial carousel]`. The last two are accessible labels for the icon control.
+
+### Owner-requested page rewrite and hover correction, 7 Oct
+The owner explicitly requested rewriting the headline, introduction and How it works, and refining the reference group scene. These replace the earlier page words/layout.
+- Headline: **Turn happy clients' words into local enquiries.**
+- Introduction: **Know who to ask, and when. We help turn their feedback into a recommendation they can share in their society group, so more neighbours hear about your classes from someone they trust.**
+- How it works, step 1 heading: **Ask the right client at the right time.** Body: **We tell you who to check in with and draft the message for you.**
+- Step 2 heading: **Let clients share in their own way.** Body: **A text, a voice note, a photo or a video. They choose what feels natural to share in their society group.** This describes the client's own group post; it does not claim that the assistant reads images/videos.
+- Step 3 heading: **Give neighbours a reason to enquire.** Body: **A neighbour's recommendation builds trust in your classes and helps others picture joining.**
+- Preview label: **Fictional examples**. No real customer results or enquiry claims are implied.
+- Keep the existing Paste one review. button and second-section headline.
+- Put a Caveat annotation on each card, just above its top-right corner, moving with it. Use the existing four media type names, dark lettering with lime marker strokes for contrast.
+- Give neighbouring cards a small gap. Pause the track on hover/touch, lift only the selected card, and leave other card scales unchanged.
+- On phones a horizontal swipe moves one card, including with Reduce Motion enabled, so every example remains reachable without autoplay. Vertical page scrolling remains available.
+- Group scene: original generic chat pattern and header, centered Priya message with illustrative 👍 ❤️ 🙌 reactions, and a cropped following preview. Never copy reference people's names, numbers, profile photos or messages into the page/repo.
+- Missing trailing preview wording: `[COPY NEEDED: trailing testimonial preview]`.
+- Owner approved made-up fictional audio/video demos. Label: **Fictional demo**. The voice note uses synthetic speech of the approved music/session example; video is an animated generated photo with that voiceover, not an actual client's recording.
+- Demo description: **Animated photo with synthetic voice**. Media control labels: **Play fictional demo**, **Pause fictional demo**. If browser autoplay blocks sound, show **Tap to play**. Stop media on exit, selecting another card, or leaving the page; never promise audible hover autoplay on every browser.
+- If video sound is blocked, start the video muted and show **Tap for sound**. Its button label is **Play fictional demo with sound**; a tap enables sound. Audio-only demos retain Tap to play.
 
 ## 6. Principles (check every message against these)
 1. **Never add words the client didn't say.** Clean, trim, fix grammar. Nothing new.
@@ -230,3 +267,60 @@ Every recommendation explicitly identifies the instructor and her sessions. For 
 ## Owner wording correction, 7 Oct — natural first-person attribution
 
 Supersedes the context heading for English first-person reviews about classes/sessions: weave the attribution into the sentence using `I've been going to Mayuri's sessions and {client's first-person words}`. The owner's approved example, with the singular grammar corrected, is `I've been going to Mayuri's sessions and I enjoy the music in the class. I look forward to every session.` Do not add a duration, class type, result or feeling. Keep already-explicit references to Mayuri intact. For a thin reply without an attendance statement or a non-English recommendation, keep the earlier neutral attribution rather than inventing attendance or translating. The combined ask and Send to client button remain unchanged.
+
+## M5 missing copy and implementation notes, 7 Oct
+
+- The timer questions and button labels use sections 4.3 and 4.6 exactly, replacing Priya with the actual client name. The posted count replaces the illustrative 3 with this trainer's real count for the current IST month.
+- A said-no reply uses the approved thank-you introduction, a blank line, the approved thank-you draft and one Send to client button. The button contains only the thank-you draft. Leave it and Not yet have no extra acknowledgement message; none is specified here.
+- `[COPY NEEDED: unhappy client unpaused; forward her fresh reply]`: confirms a successful is happy now command. No sharing draft is created until fresh client words arrive.
+- `[COPY NEEDED: client was not paused or name was not found]`: handles an unknown name, an already-unpaused client or a client who declined to post.
+- `[COPY NEEDED: client declined to post; keep this feedback private]`: introduces later feedback from a declined client, followed by her supplied words; no public ask or new timer is created.
+- No approved Meta template copy exists yet for the timed reminder or posting question outside the 24-hour reply window. Those sends remain pending, with their blocking reason recorded, until a fresh trainer message opens that window.
+
+## Owner correction, 7 Oct — one pending question and named buttons
+
+Supersedes the earlier M5 parallel timers and generic labels for known clients. Once a recommendation/share ask is drafted, ask only `Did {name} share her recommendation?`; do not also send the no-reply reminder while awaiting the instructor's choice. No-reply reminders remain for private check-ins and short follow-up questions. The existing Not yet repeat remains once only.
+
+- Named send buttons: `Send to {name}` for check-in, recommendation, short follow-up, reminder, private unhappy reply and thank-you drafts. Unknown-client buttons retain their existing labels.
+- Posting buttons: `{name} posted it`, `{name} said no`, `Not yet`. The displayed name can be shortened to fit the 20-character button limit; the message and stored client identity retain the full name.
+- Celebration: `{name}'s society just heard about you from a neighbour. That's {count} referral this month.` Use `referrals` when the real count is greater than one. No leading emoji. These counts mean instructor-confirmed recommendation posts, not tracked enquiries.
+- URL send-button taps are not reported by Meta. Keep the existing draft-time posting timer unless the owner chooses a separate explicit send-confirmation step.
+
+
+### Owner refinement: arched previews and group names, 7 Oct
+- Hero stack follows a shallow arch: the central card is highest, side cards sit lower and tilt outward. Right-to-left motion, attached top-right annotations and individual hover lift remain.
+- Public group name: `Engrace 2 Owners`. Trailing message, as supplied: `Can someone recommend a good PDR agency about ` (unfinished wording retained pending owner correction).
+- Preview senders: Priya for text, Ananya for voice, Meera for video and the matching before/after card. The same person has the same name across those two formats. These are preview aliases.
+- Replace visible `Fictional demo` with `Demo`, and `Fictional examples` with `Example previews`. Accessible media controls: `Play demo`, `Pause demo`, `Play demo with sound`.
+- Retain exact explanation `Animated photo with synthetic voice` until an actual talking-to-camera video replaces the current animation. This is a demo, not a client recording.
+- Actual speaking footage and matching before/after photographs have not been supplied. Keep `[COPY NEEDED: approved before/after example]`; do not imply a verified 5–10 kg result from appearance or manufacture customer proof. A confirmed result and permission to publish are needed for real client media.
+
+
+### Owner update: generated before/after and group conversation, 7 Oct
+- Headline and page title: **Turn client testimonials into new enquiries.**
+- Group header contains only **Engrace 2 Owners**, without the Example previews subtitle. This is an illustrative page composition, not a captured live group or monitored messages.
+- Ananya's message: **Can someone recommend a good pediatrician nearby?**
+- Add a third message from Kavya, in reply to Priya: **@Mayuri, what are your batch timings?** The quoted preview repeats Priya's approved session recommendation; do not add a new testimonial claim. Timestamp **09:47**.
+- Replace the before/after placeholder with a generated two-panel photo of the existing demo avatar, Meera. Exact panel labels: **Before**, **After**. Label: **Demo**; explanation: **AI-generated illustration**. Image alt text: **Generated before and after demo of Meera**. No kilos, dates, fabricated verified result or claim of a real customer transformation.
+- The owner now explicitly requests generation of the illustrative before/after asset; this replaces the previous requirement to await real photographs for this demo slot. Actual weight claims still require confirmation.
+- Talking-avatar video is requested but no video-generation capability is available in this session. The existing animation's exact description stays **Animated photo with synthetic voice** until a genuinely talking clip is supplied.
+
+
+### Phone layout correction, 7 Oct
+- Desktop retains the arched, moving stack and individual hover lift. Phones use a native horizontal swipe row, readable full-width central card, a visible edge of the next card and four dot controls. Dots use existing exact format names as accessible labels: text message, voice note, before/after photo, short video. No new visible copy.
+- Phone cards are ordinary in-flow content and remain visible before scripts load. Do not use off-screen 3D transforms or opacity to decide their visibility on phones. Advance one card every six seconds while visible and unpaused, respect reduced motion, and pause after manual swiping.
+- Second-fold phone scene is compact: shorter photo background, full Priya recommendation with reactions, Kavya's batch-timings reply (quoted name Priya, without repeating the full review on a small screen), then a cropped Ananya preview. Keep all exact approved message words unchanged. Desktop keeps the full three-message scene.
+- The layout supersedes showing all three entire messages on mobile; the recommendation and resulting enquiry are the main story, the generic question provides only surrounding context.
+
+
+### Shared arched carousel and second fold, 7 Oct
+- Remove the separate handwritten a neighbour's word annotation placed over the photo/chat window. Keep the section heading and its existing marker unchanged.
+- Use the same compact society scene on desktop and phones: Priya's full recommendation/reactions, Kavya's enquiry with Priya quoted by name, and a cropped trailing Ananya message. Same typography, bubble structure and order; only outer width adapts. No full-length alternate desktop chat.
+- Phones also get an arched continuously moving stack, with readable center and overlapping side previews. Render the phone arch with ordinary 2D position/rotation/scale rather than desktop 3D perspective. First-card native fallback remains visible if scripts fail.
+- Desktop hover pauses the track and expands only the hovered card. Phone tap pauses and centers/expands the tapped card, tapping again resumes; horizontal swipe/dots choose another card, vertical gestures scroll the page. Respect reduced motion; manual selection works regardless. Existing media labels and all message copy unchanged.
+
+
+### Phone screenshot refinement, 7 Oct
+- Phone hero cards are smaller (maximum240px), with clear space between adjacent cards rather than overlapping. Keep the shallow arch and continuous motion. Reduce phone media preview heights and padding while keeping text readable at14/20px. Desktop and second fold unchanged.
+- Hover pause applies only to devices that report a real hover pointer. Touch events clear stale hover state.
+- Pause/play icon reflects manual pause and Reduce Motion pause. Respect Reduce Motion initially; pressing the existing Play control explicitly permits motion. User-initiated Play is allowed even if Reduce Motion remains on. No new labels: use existing COPY NEEDED pause/resume accessible wording.
